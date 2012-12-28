@@ -1,0 +1,11 @@
+<?php 
+$__localization["flat_id"]="شقة اسم";
+$__localization["tenant_id"]="اسم المستأجر";
+$__localization["amount"]="كمية";
+$__localization["paid"]="دفع";
+$__localization["balance"]="موازنة";
+$__localization["due_date"]="بسبب تاريخ";
+$__localization["add_date"]="تاريخ الإضافة";
+$__localization["user_id"]="هوية المستخدم";
+
+?>

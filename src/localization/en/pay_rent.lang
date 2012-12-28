@@ -1,0 +1,12 @@
+<?php 
+$__localization["__page_heading"]="Pay Rent";
+$__localization["__page_title"]="Pay Rent";
+$__localization["flat_id"]="Flat Name";
+$__localization["tenant_id"]="Tenant Name";
+$__localization["amount"]="Amount";
+$__localization["paid"]="Pay";
+$__localization["balance"]="Balance";
+$__localization["due_date"]="Due Date";
+$__localization["add_date"]="Add Date";
+$__localization["user_id"]="User Id";
+?>

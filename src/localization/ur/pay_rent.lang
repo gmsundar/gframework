@@ -1,0 +1,10 @@
+<?php 
+$__localization["flat_id"]="فلیٹ نام";
+$__localization["tenant_id"]="کرایہ دار کے نام";
+$__localization["amount"]="رقم";
+$__localization["paid"]="ادائیگی";
+$__localization["balance"]="توازن";
+$__localization["due_date"]="کی وجہ سے تاریخ";
+$__localization["add_date"]="تاریخ شامل کریں";
+$__localization["user_id"]="صارف کی شناخت";
+?>

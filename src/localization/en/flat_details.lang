@@ -1,0 +1,12 @@
+<?php 
+$__localization["door_no"]="Door No";
+$__localization["floor_no"]="Floor No";
+$__localization["street_name"]="Street Name";
+$__localization["road_name"]="Road Name";
+$__localization["city"]="City";
+$__localization["advance"]="Advance";
+$__localization["rent"]="Rent";
+$__localization["add_date"]="Add Date";
+$__localization["user_id"]="User Id";
+$__localization["flat_name"]="Flat Name";
+?>

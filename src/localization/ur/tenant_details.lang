@@ -1,0 +1,12 @@
+<?php
+$__localization["tenant_photo"]="کرایہ داروں کی تصویر";
+$__localization["tenant_name"]="کرایہ دار کے نام";
+$__localization["tenant_mobile_no"]="کرایہ داروں موبائل نہیں #";
+$__localization["tenant_email"]="کرایہ داروں کو ای میل کریں";
+$__localization["tenant_permanent_address"]="کرایہ داروں کی مستقل پتہ";
+$__localization["start_date"]="شروع کرنے کی تاریخ";
+$__localization["advance_paid"]="مواقع ادا کیا جاتا ہے";
+$__localization["add_date"]="تاریخ شامل کریں";
+$__localization["user_id"]="صارف کی شناخت";
+$__localization["flat_id"]="فلیٹ نام";
+?>

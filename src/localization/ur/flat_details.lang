@@ -1,0 +1,12 @@
+<?php 
+$__localization["door_no"]="دروازے نہیں";
+$__localization["floor_no"]="منزل نہیں";
+$__localization["street_name"]="گلی کے نام";
+$__localization["road_name"]="روڈ نام";
+$__localization["city"]="شہر";
+$__localization["advance"]="مواقع";
+$__localization["rent"]="کرایہ پر";
+$__localization["add_date"]="تاریخ شامل کریں";
+$__localization["user_id"]="صارف کی شناخت";
+$__localization["flat_name"]="فلیٹ نام";
+?>

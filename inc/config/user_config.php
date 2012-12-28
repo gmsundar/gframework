@@ -1,0 +1,39 @@
+<?php
+
+$configArray["databasetype"] = "mysql";
+$configArray["databasename"] = "gbase";
+$configArray["databaseport"] = "3306";
+$configArray["databasehost"] = "localhost";
+$configArray["databaseuser"] = "root";
+$configArray["databasepass"] = "sundar123";
+$configArray["encryptmethod"] = "AES-256-CBC";
+$configArray["encryptsalt"] = "25c6c7ff35b9979b151f2136cd13b0ff";
+$configArray["encryptiv"] = "1234567812345678";
+$configArray["applang"] = "English";
+$configArray["apptextdirection"] = "LTR";
+$configArray["apptheme"] = "themes/greenschoolerp/";
+$configArray["appjquerytheme"] = "smoothness/";
+$configArray["applogpath"] = "path/";
+$configArray["apploglevel"] = "3";
+$configArray["applogdateformat"] = "YYYY-DD-MM";
+$configArray["appenvironment"] = "Development";
+$configArray["appurl"] = "/framework/";
+$configArray["smtphost"] = "smtp.google.com";
+$configArray["smtpuser"] = "meenakshi.sun20@gmail.com";
+$configArray["smtppass"] = "pass";
+$configArray["smtpport"] = "25";
+$configArray["smtptimeout"] = "4";
+$configArray["smtpcrypto"] = "no";
+$configArray["sendmailpath"] = "path";
+$configArray["defaultemailfrom"] = "smtp.google.com";
+$configArray["apprequireslogin"] = "True";
+$configArray["apphomepage"] = "pay_rent";
+$configArray["appname"] = "GFlatManager";
+$configArray["appdateformatphp"] = "d/m/Y";
+$configArray["appdateformatjs"] = "2";
+$configArray["appdateformatdb"] = "d/m/Y";
+$configArray["appdateformatdbinput"] = "d/m/Y";
+$configArray["appdateformattpl"] = "d/m/Y";
+$configArray["pathsystem"] = "system/";
+$configArray["pathwidget"] = "system/widgets/";
+?>

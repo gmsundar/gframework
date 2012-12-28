@@ -1,0 +1,1 @@
+<?php include_once('system/cController.php');class cController extends cController {}

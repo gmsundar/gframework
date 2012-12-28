@@ -1,0 +1,14 @@
+<?php 
+$__localization["__page_heading"]="Tenant Details";
+$__localization["__page_title"]="Tenant Details";
+$__localization["tenant_photo"]="Tenant Photo";
+$__localization["tenant_name"]="Tenant Name";
+$__localization["tenant_mobile_no"]="Tenant Mobile No#";
+$__localization["tenant_email"]="Tenant Email";
+$__localization["tenant_permanent_address"]="Tenant Permanent Address";
+$__localization["start_date"]="Start Date";
+$__localization["advance_paid"]="Advance Paid";
+$__localization["add_date"]="Add Date";
+$__localization["user_id"]="User Id";
+$__localization["flat_id"]="Flat Name";
+?>
