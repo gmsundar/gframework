@@ -103,6 +103,8 @@ if ($_POST) {
         $rdata[$columnname]['properties']['step'] = '';
         $rdata[$columnname]['properties']['sequence_prepend'] = '';
         $rdata[$columnname]['properties']['sequence_append'] = '';
+
+
         //Events
         $events = (array) $properties['event'];
         $rdata[$columnname]['event']['type'] = $events['type'];
@@ -129,12 +131,16 @@ if ($_POST) {
         }
 
         //Data
+        //DB SQL
         $ctrldata = (array) $properties['data'];
         $rdata[$columnname]['data']['cols'] = $ctrldata['cols'];
         $rdata[$columnname]['data']['from'] = $ctrldata['from'];
         $rdata[$columnname]['data']['join'] = $ctrldata['join'];
         $rdata[$columnname]['data']['where'] = $ctrldata['where'];
         $rdata[$columnname]['data']['orderby'] = $ctrldata['orderby'];
+        $staticdata = (array) $ctrldata['static'];
+        $rdata[$columnname]['data']['static'] = $staticdata;
+        //Static Data
     }
 
     //print_r($rdata);

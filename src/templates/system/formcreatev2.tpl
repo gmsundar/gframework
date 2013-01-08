@@ -905,7 +905,7 @@
                 edit_type_Array["select"] = "Select";
                 edit_type_Array["checkbox"] = "Checkbox";
                 edit_type_Array["radio"] = "Radio";
-                edit_type_Array["textbox"] = "Textbox";
+                edit_type_Array["text"] = "Textbox";
                 edit_type_Array["date"] = "Date";
                 edit_type_Array["datetime"] = "Date Time";
                 edit_type_Array["time"] = "Time";
@@ -926,11 +926,11 @@
 
                 switch (sourcedata[name]['type']) {
                     case 'varchar':
-                        edit_selected = ['select', 'checkbox', 'radio', 'textbox', 'time', 'color', 'file', 'camera', 'textarea'];
+                        edit_selected = ['select', 'checkbox', 'radio', 'text', 'time', 'color', 'file', 'camera', 'textarea'];
                         view_selected = ['html', 'image', 'file', 'audio', 'video', 'url', 'map', 'custom'];
                         break;
                     case 'int':
-                        edit_selected = ['select', 'checkbox', 'radio', 'textbox', 'time'];
+                        edit_selected = ['select', 'checkbox', 'radio', 'text', 'time'];
 
                         view_selected = ['html', 'url', 'map', 'custom'];
                         break;
@@ -1003,8 +1003,10 @@
 
                  });
                  */
+                var staticdatasize = resultdata[name]['data']['static'].length;
+                for (i = 0; i < staticdatasize; i++) {
 
-
+                }
 
                 $('#column_display_name').val(resultdata[name]['display_name']);
                 geoJs.setSelectOptions('#edit_type', edit_json, true, resultdata[name]['edit_as']);
