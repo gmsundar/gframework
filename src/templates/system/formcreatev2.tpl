@@ -803,6 +803,7 @@
 //                $('.buildingobj').contextmenu();
             });
 
+            //$('.formcontrols').trigger('click');
             /*$('.hover').mouseover(function(e) {
              $(this).addClass('hoverhighlight');
 
@@ -881,6 +882,9 @@
 
             });
 
+
+            $(".highlightbuildingblock > table").find('tbody').sortable({
+            }).disableSelection();
         });
 
         function applyFormatting() {
@@ -1121,12 +1125,12 @@
         .ctrllabel{
             background-color: #fbf069;
             border:1px solid black;
-            padding: 3px;
+
         }
         .ctrl{
             background-color: #a9dba9;
             border:1px solid black;
-            padding: 3px;
+
         }
         .highlightelements{
             background-color: lightblue;

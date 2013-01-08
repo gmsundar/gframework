@@ -8,12 +8,12 @@ include_once 'user_config.php';
 /**
  * Server Configurations
  */
-//ini_set('error_reporting', E_ALL & ~E_NOTICE);
-//ini_set('html_errors', On);
+ini_set('error_reporting', E_ALL & ~E_NOTICE);
+ini_set('html_errors', On);
 //ini_set('expose_php', Off);
 //ini_set('output_buffering',40960);
 //ini_set('max_execution_time',40);
-//ini_set('default_charset', 'utf-8');
+ini_set('default_charset', 'utf-8');
 //ini_set('session.save_path','../../tech/sessions');
 
 
@@ -36,7 +36,7 @@ $configArray["applang"] = $configArray["applang"] ? $configArray["applang"] : "e
 $configArray["apptextdirection"] = $configArray["apptextdirection"] ? $configArray["apptextdirection"] : "LTR";
 $configArray["apptheme"] = "themes/" . $configArray["apptheme"] ? $configArray["apptheme"] : "greenschoolerp" . "/";
 $configArray["appenvironment"] = $configArray["appenvironment"] ? $configArray["appenvironment"] : "Development";
-$configArray["appurl"] = $configArray["appurl"] ? $configArray["appurl"] : "/framework/";
+$configArray["appurl"] = $configArray["appurl"] ? $configArray["appurl"] : "/framework1/";
 $configArray["smtphost"] = $configArray["smtphost"] ? $configArray["smtphost"] : "smtp.google.com";
 $configArray["smtpuser"] = $configArray["smtpuser"] ? $configArray["smtpuser"] : "meenakshi.sun20@gmail.com";
 $configArray["smtppass"] = $configArray["smtppass"] ? $configArray["smtppass"] : "pass";
@@ -56,7 +56,7 @@ define('DataBaseHost', $configArray["databasehost"]);
 define('DataBaseUser', $configArray["databaseuser"]);
 define('DataBasePass', $configArray["databasepass"]);
 define('DataBaseType', $configArray["databasetype"]);
-define('DataBaseFile', $configArray["databasefile"]);
+//define('DataBaseFile', $configArray["databasefile"]);
 
 
 /**
@@ -72,7 +72,7 @@ define('EncryptOutput', false);
  */
 define('AppHost', $_SERVER['HTTP_HOST']);
 define('AppProtocol', ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://");
-define('AppURL', AppProtocol . AppHost . '/framework/');
+define('AppURL', AppProtocol . AppHost . '/framework1/');
 define('PublicDir', 'src/');
 define('IncDir', 'inc/');
 define('AppController', '/' . IncDir . 'controller/');
@@ -162,6 +162,14 @@ define('AppReportDesigns', AppRoot . '/' . IncDir . 'admin/reportdesigns/');
  */
 define('AppsBugsURL', 'http://code.google.com/p/issueescalator/issues/list');
 
+$__layouts = array(
+    "1" => 'layout1',
+    "2" => 'layout2',
+    "3" => 'layout3',
+    "4" => 'layout4',
+    "5" => 'layout5'
+);
+define(AppLayout, $__layouts[1]);
 /**
  * Application Settings
  *

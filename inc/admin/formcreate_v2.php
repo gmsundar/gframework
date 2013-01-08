@@ -33,8 +33,7 @@ if ($_POST) {
     $cFormCreate->properties = json_decode($_POST['result']);
     $cFormCreate->html = $_POST['designer_hidden'];
     $cFormCreate->createPage();
-
-    exit;
+    header("Location:formcreate_v2.php");
 //    $cFormCreate->createView();
 //    $cFormCreate->createScript();
 //    $cFormCreate->createController();

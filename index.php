@@ -12,7 +12,7 @@ $get = cleanget();
 
 $smarty = new Smarty();
 
-
+$__localization = array();
 
 $languageFileName = AppRoot . AppLocalizationURL . $get['f'] . '.lang';
 if (is_readable($languageFileName)) {
@@ -56,7 +56,7 @@ $smarty->assign('dataType', $get['dataType']);
 
 
 if ($get['dataType'] == '') {
-    $smarty->display(AppTheme . 'layout.tpl');
+    $smarty->display('layouts/' . AppLayout . '.tpl');
 } else {
     $smarty->display($content_details_array['tplFileName']);
 }

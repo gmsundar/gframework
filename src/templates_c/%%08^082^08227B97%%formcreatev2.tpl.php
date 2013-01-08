@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-12-16 09:12:55
+<?php /* Smarty version 2.6.26, created on 2013-01-08 16:28:15
          compiled from system/formcreatev2.tpl */ ?>
 <link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
 bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
@@ -6,17 +6,22 @@ bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
 bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
 bootstrap-editable.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
+jasny-bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
 bootstrap.min.js"></script>
 <script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
 bootstrap-editable.js"></script>
 <script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
 jquery.table.addrow.js"></script>
-<div class="container-fluid">
+<script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
+bootstrap-contextmenu.js"></script>
+<form id="gframework" method="POST" name="gframework">
+    <div class="container-fluid">
 
-    <div class="row-fluid">
-        <div class="span3">
-            <form>
+        <div class="row-fluid">
+            <div class="span3">
+
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#tabs-1">Settings</a></li>
                     <li><a href="#tabs-2">Fields</a></li>
@@ -47,7 +52,6 @@ jquery.table.addrow.js"></script>
                                         <input name="title" type="text" class="input-medium" id="title" />
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td>No of columns</td>
                                     <td><input type=number id="cols" min="1" class="input-mini" max="99" step="1" value="1" required="true"/></td>
@@ -120,7 +124,7 @@ jquery.table.addrow.js"></script>
                                     <td colspan="2">
                                         <fieldset>
                                             <legend>Data</legend>
-                                            <div class="data-select ctrlproperties" style="display: none">
+                                            <div class="data-select data-checkbox data-radio ctrlproperties" style="display: none">
                                                 <ul class="nav nav-tabs" id="data-select-tab">
                                                     <li><a href="#database">Database</a></li>
                                                     <li class="active"><a href="#static">Static</a></li>
@@ -254,14 +258,14 @@ jquery.table.addrow.js"></script>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="data-text ctrlproperties" style="display: none">
+                                            <div class="data-textbox ctrlproperties" style="display: none">
                                                 <table>
                                                     <tr>
                                                         <td>Type</td>
                                                         <td>
                                                             <select class="" id="data_textbox_type">
+                                                                <option value="alphanumeric" >Normal</option>
                                                                 <option value="password" >Password</option>
-                                                                <option value="password_with_confirm" >Password with Confirm</option>
                                                                 <option value="number" >Number</option>
                                                                 <option value="email" >Email</option>
                                                                 <option value="range" >Range</option>
@@ -273,9 +277,9 @@ jquery.table.addrow.js"></script>
                                                             </select>
                                                             <input name="minvalue" id="minvalue" type="text" class="input-mini" placeholder="Min" >
                                                             <input name="maxvalue" id="maxvalue" type="text" class="input-mini" placeholder="Max" >
-                                                            <input name="stepvalue" id="stepvalue" type="text" class="input-mini" placeholder="Max" >
+                                                            <input name="stepvalue" id="stepvalue" type="text" class="input-mini" placeholder="Step" >
 
-                                                            <input name="autoseq_pre" id="autoseq_pre" type="text" class="input-mini" placeholder="Auto Sequence Invoice" >
+                                                            <input name="autoseq_pre" id="autoseq_pre" type="text" class="input-small" placeholder="Auto Sequence " >
                                                             <input name="autoseq_app" id="autoseq_app" type="text" class="input-mini" placeholder="Seq" >
                                                         </td>
                                                     </tr>
@@ -294,6 +298,10 @@ jquery.table.addrow.js"></script>
                                                         <input type="text" name="novalue" id="novalue" placeholder="Display on unchecked">
                                                     </div>
                                                 </div>
+                                                <label class="checkobox inline">
+                                                    Inline
+                                                    <input type="checkbox" name="inline" id="inline" />
+                                                </label>
                                             </div>
                                             <div class="data-textarea ctrlproperties" style="display: none" >
                                                 <table>
@@ -327,15 +335,15 @@ jquery.table.addrow.js"></script>
                                         <fieldset>
                                             <legend>Properties</legend>
                                             <label class="checkbox inline" for="mandatory">
-                                                <input type="checkbox" name="mandatory" id="mandatory">
                                                 Mandatory
+                                                <input type="checkbox" name="mandatory" id="mandatory">
                                             </label>
                                             <input type="text" placeholder="Place Holder" name="placeholder" id="placeholder">
                                             <input type="text" placeholder="Size px" name="size" id="size" class="input-mini">
                                             <input type="text" placeholder="Default Value" name="default_value" id="default_value">
                                             <input type="text" placeholder="Prepend Value" name="prepend_value" id="prepend_value">
                                             <input type="text" placeholder="Append Value" name="append_value" id="append_value">
-                                                                                        <div class="control-group">
+                                            <div class="control-group">
                                                 <label class="control-label" for="no_validations">Validations</label>
                                                 <div class="controls">
                                                     <select name="validations" id="validations">
@@ -664,7 +672,6 @@ jquery.table.addrow.js"></script>
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event21">
                                         Edit: After Record Added
-
                                     </a>
                                 </div>
                                 <div id="event21" class="accordion-body collapse">
@@ -688,25 +695,56 @@ jquery.table.addrow.js"></script>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="span9">
-            <div id="designer">
 
             </div>
+            <div class="span9">
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <div class="controls ctrl-formatting">
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">Normal<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a id="font1" href="#">Font1</a></li>
+                                    <li><a id="font2" href="#">Font2</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group" data-toggle="buttons-checkbox">
+                                <button type="button" class="btn"><i class="icon-bold"></i></button>
+                                <button type="button" class="btn"><i class="icon-italic"></i></button>
+                                <button type="button" class="btn"><i class="icon-text-width"></i></button>
+                            </div>
+                            <div class="btn-group" data-toggle="buttons-radio">
+                                <button type="button" class="btn"><i class="icon-align-left"></i></button>
+                                <button type="button" class="btn"><i class="icon-align-center"></i></button>
+                                <button type="button" class="btn"><i class="icon-align-right"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="designer">
+                    <?php echo $this->_tpl_vars['content_details_array']['formelements']['html']; ?>
+
+                </div>
+            </div>
         </div>
-    </div>
-    <input type="hidden" value='<?php echo $this->_tpl_vars['content_details_array']['formelements']['dbdatajson']; ?>
+        <input type="hidden" value='<?php echo $this->_tpl_vars['content_details_array']['formelements']['dbdatajson']; ?>
 ' name="source" id="source"/>
-    <input type="hidden" value='<?php echo $this->_tpl_vars['content_details_array']['formelements']['resultdatajson']; ?>
+        <input type="hidden" value='<?php echo $this->_tpl_vars['content_details_array']['formelements']['resultdatajson']; ?>
 ' name="result" id="result"/>
-    <input type="hidden" value='' name="currentcol" id="currentcol"/>
-    <input type="hidden" value='' name="designer_hidden" id="designer_hidden"/>
-    <a href="#" class="btn" id="preview">Preview[New Tab]</a>
-    <a href="#" class="btn" id="save">Save</a>
-
-</div>
-
+        <input type="hidden" value='' name="currentcol" id="currentcol"/>
+        <input type="hidden" value='' name="designer_hidden" id="designer_hidden"/>
+        <a href="#" class="btn" id="preview">Preview[New Tab]</a>
+        <a href="#" class="btn" id="save">Save</a>
+        <ul id="tabletoolsmenu" class="context-menu dropdown-menu">
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Another action 1</a></li>
+            <li><a href="#">Something else here 1</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link 1</a></li>
+        </ul>
+    </div>
+</form>
 <?php echo '
     <script>
         var sourcedata = \'\';
@@ -721,6 +759,8 @@ jquery.table.addrow.js"></script>
             });
             $(\'#preview\').click(function() {
                 $(\'#designer_hidden\').val($(\'#designer\').html());
+                $(\'#result\').val(JSON.stringify(resultdata));
+                $(\'#gframework\').submit();
 
             });
             $(\'#data-select-tab a\').click(function(e) {
@@ -738,17 +778,31 @@ jquery.table.addrow.js"></script>
             }).trigger(\'click\');
 
             $(\'.buildingblock\').live(\'click\', function() {
-                $(\'.buildingblock\').removeClass(\'ui-state-highlight ui-corner-all\');
-                $(this).addClass(\'ui-state-highlight ui-corner-all\');
+                $(\'.buildingblock\').removeClass(\'highlightbuildingblock ui-corner-all\');
+                $(this).addClass(\'highlightbuildingblock ui-corner-all\');
             });
             $(\'.formcontrols\').live(\'click\', function() {
-                if ($(\'.ui-state-highlight\').length <= 0) {
+                if ($(\'.highlightbuildingblock\').length <= 0) {
                     alert(\'Please select any block to insert element !!!\');
                 } else {
                     var colname = $(this).html();
-                    $(\'.ui-state-highlight > table\').find(\'tbody\').append(\'<tr id="\' + $(this).attr(\'id\') + \'" class="buildingobj"><td><label id="\' + $(this).attr(\'id\') + \'_labl">\' + resultdata[colname][\'display_name\'] + \'</label></td><td><label id="\' + $(this).attr(\'id\') + \'_ctrl"><span>\' + $(this).html() + \'</span><i class="close pull-right" >&times;</i></label></td></tr>\');
-                    if ($(this).hasClass(\'html\') === false)
-                        $(this).remove();
+                    var data = \'<tr id="\' + $(this).attr(\'id\') + \'" class="buildingobj">\\n\';
+                    data += \'<td data-context-menu="#tabletoolsmenu">\'
+                    data += \'<span id="\' + $(this).attr(\'id\') + \'_labl" class="ctrllabel">\' + resultdata[colname][\'display_name\'];
+                    data += \'</span>\'
+                    data += \'</td>\';
+                    data += \'<td>\';
+                    data += \'<span id="\' + $(this).attr(\'id\') + \'_ctrl" class="ctrl">\';
+                    data += \'<span class="">\' + $(this).html() + \'</span>\';
+                    data += \'<i class="close pull-right" >&times;</i>\';
+                    data += \'</span>\';
+                    data += \'</td>\';
+                    data += \'</tr>\';
+                    $(\'.highlightbuildingblock > table\').find(\'tbody\').append(data);
+                    //if ($(this).hasClass(\'html\') === false)
+                    //   $(this).remove();
+                    $(\'#currentcol\').val($(this).attr(\'id\'));
+                    customizeColumnLoad();
 
                 }
 
@@ -759,21 +813,41 @@ jquery.table.addrow.js"></script>
                     return ui;
                 };
 
-                $(".ui-state-highlight > table").find(\'tbody\').sortable({
+                $(".highlightbuildingblock > table").find(\'tbody\').sortable({
                     helper: fixHelper
                 }).disableSelection();
 
-
+//                $(\'.buildingobj\').contextmenu();
             });
 
+            //$(\'.formcontrols\').trigger(\'click\');
+            /*$(\'.hover\').mouseover(function(e) {
+             $(this).addClass(\'hoverhighlight\');
+
+             }).mouseleave(function(e) {
+             $(this).removeClass(\'hoverhighlight\');
+
+
+             });*/
+            $(\'.ctrllabel,.ctrl\').live(\'click\', function(e) {
+                $(\'.ctrllabel,.ctrl\').removeClass(\'highlightelements\');
+                $(this).addClass(\'highlightelements\');
+
+
+            }).css(\'cursor\', \'pointer\');
             $(\'.buildingobj\').live(\'click\', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
+
+
+                customizeColumnSave();
+
+
                 $(\'#currentcol\').val($(this).attr(\'id\'));
                 customizeColumnLoad();
+
                 $(\'#myTab a[href="#tabs-3"]\').tab(\'show\');
                 $(\'#edit_type\').trigger(\'change\');
                 $(\'#view_type\').trigger(\'change\');
+
             });
             $(\'.close\').live(\'click\', function() {
                 $(this).parent().parent().parent().remove();
@@ -782,15 +856,18 @@ jquery.table.addrow.js"></script>
                 }
             });
 
-            $(\'.group_name\').dblclick(function() {
-                $(this).html();
+
+            $(\'.icon-pencil\').click(function(e) {
+                $(this).prev().html(\'<input type=text value=\' + $(this).prev().html() + \'/>\');
+                $(this).removeClass(\'icon-pencil\').addClass(\'icon-ok\');
+                $(\'.group_name > span\').editable({\'placement\': \'bottom\'});
+                e.preventDefault();
+            });
+            $(\'.icon-ok\').click(function() {
+                //have to be fix
+                $(this).removeClass(\'icon-ok\').addClass(\'icon-pencil\');
             });
 
-            /* $(\'.icon-pencil\').click(function(e) {
-             $(this).prev().html(\'<input type=text value=\' + $(this).prev().html() + \'/>\');
-             $(this).removeClass(\'icon-pencil\').addClass(\'icon-ok\');
-             e.preventDefault();
-             });*/
 
             $(\'#column_display_name\').change(function() {
                 var name = $(\'#currentcol\').val();
@@ -801,147 +878,216 @@ jquery.table.addrow.js"></script>
                 $(\'.ctrlproperties\').hide();
                 $(\'.data-\' + $(this).val()).show();
                 $(\'.data-\' + $(\'#view_type\').val()).show();
-
+                customizeColumnSave();
             });
             $(\'#view_type\').change(function() {
                 $(\'.ctrlproperties\').hide();
                 $(\'.data-\' + $(this).val()).show();
                 $(\'.data-\' + $(\'#edit_type\').val()).show();
-            });
-            $(\'.pencil\').click(function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                $(\'.group_name > span\').editable({\'placement\': \'bottom\'});
+                customizeColumnSave();
             });
 
-            $(\'.data_save\').click(function(e) {
 
+            $(\'.ctrl-formatting\').find(\'button\').click(function() {
+
+                //$(\'.highlightelements\').removeClass(\'icon-bold icon-italic icon-text-width icon-align-left icon-align-center icon-align-right\');
+                if ($(this).hasClass(\'active\')) {
+                    $(\'.highlightelements\').addClass($(this).find(\'i\').attr(\'class\'))
+                } else {
+                    $(\'.highlightelements\').removeClass($(this).find(\'i\').attr(\'class\'))
+                }
 
             });
+
+
+            $(".highlightbuildingblock > table").find(\'tbody\').sortable({
+            }).disableSelection();
         });
 
+        function applyFormatting() {
+
+        }
+        function loadFormatting() {
+
+        }
         function customizeColumnLoad() {
             var name = $(\'#currentcol\').val();
-            var edit_type_Array = new Array();
-            var view_type_Array = new Array();
-            var edit_selected = new Array();
-            var view_selected = new Array();
+            if (name != \'\') {
 
-            //Edit Types
-            edit_type_Array["select"] = "Select";
-            edit_type_Array["checkbox"] = "Checkbox";
-            edit_type_Array["radio"] = "Radio";
-            edit_type_Array["textbox"] = "Textbox";
-            edit_type_Array["date"] = "Date";
-            edit_type_Array["datetime"] = "Date Time";
-            edit_type_Array["time"] = "Time";
-            edit_type_Array["color"] = "Color";
-            edit_type_Array["file"] = "Upload";
-            edit_type_Array["camera"] = "Camera";
-            edit_type_Array["textarea"] = "Text Area";
 
-            //View Types
-            view_type_Array["url"] = "Hyper Link";
-            view_type_Array["image"] = "Image";
-            view_type_Array["file"] = "File";
-            view_type_Array["html"] = "HTML";
-            view_type_Array["audio"] = "Audio";
-            view_type_Array["video"] = "Video";
-            view_type_Array["map"] = "Map";
-            view_type_Array["custom"] = "Custom";
+                var edit_type_Array = new Array();
+                var view_type_Array = new Array();
+                var edit_selected = new Array();
+                var view_selected = new Array();
 
-            switch (sourcedata[name][\'type\']) {
-                case \'varchar\':
-                    edit_selected = [\'select\', \'checkbox\', \'radio\', \'textbox\', \'hidden\', \'time\', \'color\', \'file\', \'camera\', \'textarea\'];
-                    view_selected = [\'html\', \'image\', \'file\', \'audio\', \'video\', \'url\', \'map\', \'custom\'];
-                    break;
-                case \'int\':
-                    edit_selected = [\'select\', \'checkbox\', \'radio\', \'textbox\', \'hidden\', \'time\'];
+                //Edit Types
+                edit_type_Array["select"] = "Select";
+                edit_type_Array["checkbox"] = "Checkbox";
+                edit_type_Array["radio"] = "Radio";
+                edit_type_Array["textbox"] = "Textbox";
+                edit_type_Array["date"] = "Date";
+                edit_type_Array["datetime"] = "Date Time";
+                edit_type_Array["time"] = "Time";
+                edit_type_Array["color"] = "Color";
+                edit_type_Array["file"] = "Upload";
+                edit_type_Array["camera"] = "Camera";
+                edit_type_Array["textarea"] = "Text Area";
 
-                    view_selected = [\'html\', \'url\', \'map\', \'custom\'];
-                    break;
-                case \'date\':
-                case \'timestamp\':
-                    edit_selected = [\'date\', \'datetime\', \'time\'];
-                    view_selected = [\'html\'];
-                    break;
-            }
-            var edit_json = "[";
+                //View Types
+                view_type_Array["url"] = "Hyper Link";
+                view_type_Array["image"] = "Image";
+                view_type_Array["file"] = "File";
+                view_type_Array["html"] = "HTML";
+                view_type_Array["audio"] = "Audio";
+                view_type_Array["video"] = "Video";
+                view_type_Array["map"] = "Map";
+                view_type_Array["custom"] = "Custom";
 
-            $.each(edit_selected, function(index, value) {
-                if (typeof edit_json[index] !== \'Array\') {
-                    edit_json[index] = new Array();
+                switch (sourcedata[name][\'type\']) {
+                    case \'varchar\':
+                        edit_selected = [\'select\', \'checkbox\', \'radio\', \'textbox\', \'time\', \'color\', \'file\', \'camera\', \'textarea\'];
+                        view_selected = [\'html\', \'image\', \'file\', \'audio\', \'video\', \'url\', \'map\', \'custom\'];
+                        break;
+                    case \'int\':
+                        edit_selected = [\'select\', \'checkbox\', \'radio\', \'textbox\', \'time\'];
+
+                        view_selected = [\'html\', \'url\', \'map\', \'custom\'];
+                        break;
+                    case \'date\':
+                    case \'timestamp\':
+                        edit_selected = [\'date\', \'datetime\', \'time\'];
+                        view_selected = [\'html\'];
+                        break;
                 }
-                edit_json += \'{"id":"\' + value + \'","value":"\' + edit_type_Array[value] + \'"},\';
+                var edit_json = "[";
 
-            });
-            var view_json = "[";
+                $.each(edit_selected, function(index, value) {
+                    if (typeof edit_json[index] !== \'Array\') {
+                        edit_json[index] = new Array();
+                    }
+                    edit_json += \'{"id":"\' + value + \'","value":"\' + edit_type_Array[value] + \'"},\';
 
-            $.each(view_selected, function(index, value) {
-                if (typeof view_json[index] !== \'Array\')
-                    view_json[index] = new Array();
-                view_json += \'{"id":"\' + value + \'","value":"\' + view_type_Array[value] + \'"},\';
+                });
+                var view_json = "[";
 
-            });
+                $.each(view_selected, function(index, value) {
+                    if (typeof view_json[index] !== \'Array\')
+                        view_json[index] = new Array();
+                    view_json += \'{"id":"\' + value + \'","value":"\' + view_type_Array[value] + \'"},\';
 
-            edit_json = edit_json.substring(0, edit_json.length - 1) + "]";
-            view_json = view_json.substring(0, view_json.length - 1) + "]";
+                });
 
-            geoJs.setSelectOptions(\'#edit_type\', edit_json, true, "");
-            geoJs.setSelectOptions(\'#view_type\', view_json, true, "");
+                edit_json = edit_json.substring(0, edit_json.length - 1) + "]";
+                view_json = view_json.substring(0, view_json.length - 1) + "]";
+//Loading values
 
 
-            $(\'#column_display_name\').val(resultdata[name][\'display_name\']);
+                $(\'#mandatory\').attr(\'checked\', resultdata[name][\'mandatory\']);
+                $(\'#viewallcolumns\').attr(\'checked\', resultdata[name][\'view_all\']);
+                $(\'#column_display_name\').val(resultdata[name][\'view_all_calculation\']);
+                $(\'#placeholder\').val(resultdata[name][\'place_holder\']);
+                $(\'#default_value\').val(resultdata[name][\'default_value\']);
+                $(\'#prepend_value\').val(resultdata[name][\'prepend_value\']);
+                $(\'#append_value\').val(resultdata[name][\'append_value\']);
+                $(\'#size\').val(resultdata[name][\'size\']);
+                $(\'#validation_pattern_value\').val(resultdata[name][\'validation\'][\'custom_pattern\']);
+                //db column ,table
+                $(\'#validations\').val(resultdata[name][\'validation\']);
+                $(\'#addonfly\').attr(\'checked\', resultdata[name][\'add_on_fly\']);
+                $(\'#javascript\').val(resultdata[name][\'javascript\']);
+
+
+                /*i = 0;
+                 resultdata[name][\'dependent\'][i][\'cols\'] = $(\'#dependent_column\').val();
+                 resultdata[name][\'dependent\'][i][\'from\'] = $(\'#dependent_table\').val();
+                 resultdata[name][\'dependent\'][i][\'where\'] = $(\'#dependent_column_condition\').val();
+                 resultdata[name][\'dependent\'][i][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                 resultdata[name][\'dependent\'][i][\'applyto\'] = $(\'#dependent\').val();
+
+                 resultdata[name][\'data\'][\'cols\'] = $(\'#dependent_column\').val();
+                 resultdata[name][\'data\'][\'from\'] = $(\'#dependent_table\').val();
+                 resultdata[name][\'data\'][\'join\'] = $(\'#dependent_join\').val();
+                 resultdata[name][\'data\'][\'where\'] = $(\'#dependent_column_condition\').val();
+                 resultdata[name][\'data\'][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                 resultdata[name][\'data\'][\'static\'] = data;
+
+                 resultdata[name][\'event\'][\'type\'] = \'\';
+                 var data = new Array();
+                 $(\'.static_key_data\').each(function(index) {
+                 if ($(this).val() !== \'\' && $(\'.static_value_data\').val() !== \'\') {
+                 data[index] = new Array();
+                 data[index][\'id\'] = $(this).val();
+                 data[index][\'value\'] = $(\'.static_value_data\').val();
+                 }
+
+                 });
+                 */
+
+                $(\'#column_display_name\').val(resultdata[name][\'display_name\']);
+                geoJs.setSelectOptions(\'#edit_type\', edit_json, true, resultdata[name][\'edit_as\']);
+                geoJs.setSelectOptions(\'#view_type\', view_json, true, resultdata[name][\'view_as\']);
+
+
+
+
+            }
 
         }
         function customizeColumnSave() {
             var name = $(\'#currentcol\').val();
-            resultdata[name][\'display_name\'] = $(\'#column_display_name\').val();
-            resultdata[name][\'mandatory\'] = $(\'#mandatory\').val();
-            resultdata[name][\'edit_as\'] = $(\'#edit_type\').val();
-            resultdata[name][\'view_as\'] = $(\'#view_type\').val();
-            resultdata[name][\'view_all\'] = $(\'#viewallcolumns\').val();
-            resultdata[name][\'view_calculation\'] = $(\'#column_display_name\').val();
-            resultdata[name][\'view_all_calculation\'] = $(\'#column_display_name\').val();
-            resultdata[name][\'add_as\'] = $(\'#edit_type\').val();
-            resultdata[name][\'place_holder\'] = $(\'#placeholder\').val();
-            resultdata[name][\'default_value\'] = $(\'#default_value\').val();
-            resultdata[name][\'prepend_value\'] = $(\'#prepend_value\').val();
-            resultdata[name][\'append_value\'] = $(\'#append_value\').val();
-            resultdata[name][\'size\'] = $(\'#size\').val();
-            resultdata[name][\'validation\'][\'custom_pattern\'] = $(\'#validation_pattern_value\').val();
-            //db column ,table
-            resultdata[name][\'validation\'][\'unique\'] = \'\';
-            resultdata[name][\'validation\'][\'type\'] = \'validations\';
+            if (name != \'\') {
+                resultdata[name][\'display_name\'] = $(\'#column_display_name\').val();
+                resultdata[name][\'mandatory\'] = $(\'#mandatory\').attr(\'checked\');
+                resultdata[name][\'edit_as\'] = $(\'#edit_type option:selected\').val();
+                resultdata[name][\'view_as\'] = $(\'#view_type option:selected\').val();
+                resultdata[name][\'view_all\'] = $(\'#viewallcolumns\').attr(\'checked\');
+                resultdata[name][\'view_calculation\'] = $(\'#column_display_name\').val();
+                resultdata[name][\'view_all_calculation\'] = $(\'#column_display_name\').val();
 
-            i = 0;
-            resultdata[name][\'dependent\'][i][\'cols\'] = $(\'#dependent_column\').val();
-            resultdata[name][\'dependent\'][i][\'from\'] = $(\'#dependent_table\').val();
-            resultdata[name][\'dependent\'][i][\'where\'] = $(\'#dependent_column_condition\').val();
-            resultdata[name][\'dependent\'][i][\'orderby\'] = $(\'#dependent_column_orderby\').val();
-            resultdata[name][\'dependent\'][i][\'applyto\'] = $(\'#dependent\').val();
-            resultdata[name][\'data\'][\'cols\'] = $(\'#dependent_column\').val();
-            resultdata[name][\'data\'][\'from\'] = $(\'#dependent_table\').val();
-            resultdata[name][\'data\'][\'join\'] = $(\'#dependent_join\').val();
-            resultdata[name][\'data\'][\'where\'] = $(\'#dependent_column_condition\').val();
-            resultdata[name][\'data\'][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                resultdata[name][\'add_as\'] = $(\'#edit_type option:selected\').val();
+                resultdata[name][\'place_holder\'] = $(\'#placeholder\').val();
+                resultdata[name][\'default_value\'] = $(\'#default_value\').val();
+                resultdata[name][\'prepend_value\'] = $(\'#prepend_value\').val();
+                resultdata[name][\'append_value\'] = $(\'#append_value\').val();
+                resultdata[name][\'size\'] = $(\'#size\').val();
+                resultdata[name][\'validation\'][\'custom_pattern\'] = $(\'#validation_pattern_value\').val();
+                resultdata[name][\'validation\'][\'type\'] = $(\'#validations\').val();
 
-            var data = new Array();
-            $(\'.static_key_data\').each(function(index) {
-                if ($(this).val() !== \'\' && $(\'.static_value_data\').val() !== \'\') {
-                    data[index] = new Array();
-                    data[index][\'id\'] = $(this).val();
-                    data[index][\'value\'] = $(\'.static_value_data\').val();
-                }
+                resultdata[name][\'properties\'][\'type\'] = $(\'#data_textbox_type\').val();
+                resultdata[name][\'properties\'][\'min\'] = $(\'#minvalue\').val();
+                resultdata[name][\'properties\'][\'max\'] = $(\'#maxvalue\').val();
+                resultdata[name][\'properties\'][\'step\'] = $(\'#stepvalue\').val();
+                resultdata[name][\'properties\'][\'sequence_prepend\'] = $(\'#autoseq_pre\').val();
+                resultdata[name][\'properties\'][\'sequence_append\'] = $(\'#autoseq_app\').val();
 
-            });
-            e.stopPropagation();
-            e.preventDefault();
-            console.log(data);
-            resultdata[name][\'data\'][\'static\'] = data;
-            resultdata[name][\'add_on_fly\'] = \'\';
-            resultdata[name][\'javascript\'] = $(\'#javascript\').val();
-            resultdata[name][\'event\'][\'type\'] = \'\';
+                i = 0;
+                resultdata[name][\'dependent\'][i][\'cols\'] = $(\'#dependent_column\').val();
+                resultdata[name][\'dependent\'][i][\'from\'] = $(\'#dependent_table\').val();
+                resultdata[name][\'dependent\'][i][\'where\'] = $(\'#dependent_column_condition\').val();
+                resultdata[name][\'dependent\'][i][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                resultdata[name][\'dependent\'][i][\'applyto\'] = $(\'#dependent\').val();
+
+                resultdata[name][\'data\'][\'cols\'] = $(\'#dependent_column\').val();
+                resultdata[name][\'data\'][\'from\'] = $(\'#dependent_table\').val();
+                resultdata[name][\'data\'][\'join\'] = $(\'#dependent_join\').val();
+                resultdata[name][\'data\'][\'where\'] = $(\'#dependent_column_condition\').val();
+                resultdata[name][\'data\'][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+
+                var data = new Array();
+                $(\'.static_key_data\').each(function(index) {
+                    if ($(this).val() !== \'\' && $(\'.static_value_data\').val() !== \'\') {
+                        data[index] = new Array();
+                        data[index][\'id\'] = $(this).val();
+                        data[index][\'value\'] = $(\'.static_value_data\').val();
+                    }
+
+                });
+
+                resultdata[name][\'data\'][\'static\'] = data;
+                resultdata[name][\'add_on_fly\'] = $(\'#addonfly\').attr(\'checked\');
+                resultdata[name][\'javascript\'] = $(\'#javascript\').val();
+
+            }
 
         }
 
@@ -958,26 +1104,57 @@ jquery.table.addrow.js"></script>
                 for (var j = 0; j < cols; j++) {
 
                     if ($(\'#g\' + i + j).html()) {
-                        console.log($(\'#g\' + i + j).html());
+
                         exisitingdata = $(\'#g\' + i + j).html();
                     } else {
-                        //exisitingdata = \'<fieldset class="droppable"><legend class="subhead">Properties</legend></fieldset>\';
-                        exisitingdata = \'<table class="table-bordered table-striped span12" ><thead><tr>\';
-                        exisitingdata += \'<th colspan=2 class="group_name"><span>Group Name</span>\';
-                        exisitingdata += \'<a class="pencil" data-type="text" data-original-title="Enter username" ><i class="icon-pencil"\';
 
-                        exisitingdata += \'></i></a></th></tr></thead><tbody></tbody></table>\';
+                        exisitingdata = \'<table class="table-bordered table-striped table-hover span12" ><thead><tr>\';
+                        exisitingdata += \'<th colspan=2 class="group_name"><span>Group Name</span>\';
+                        exisitingdata += \'<a class="pencil" data-type="text" data-original-title="Enter username" >\\n\';
+                        exisitingdata += \'<i class="icon-pencil"></i></a></th></tr></thead><tbody></tbody></table>\';
                     }
-                    $row.append("<td style=\'width:" + width + "%;vertical-align: top;\' id=\'g" + i + j + "\' class=\'buildingblock\' >" + exisitingdata + "</td>");
+                    $row.append("<td style=\'width:" + width + "%;vertical-align: top;\' id=\'g" + i + j + "\' class=\'buildingblock\'  >" + exisitingdata + "</td>");
                 }
                 $table.append($row);
             }
 
             $(\'#designer\').html($table);
+            $(".highlightbuildingblock > table").find(\'tbody\').sortable({
+            }).disableSelection();
+
         }
 
     </script>
+    <style>
 
+        .formcontrols,.html{
+            cursor: pointer;
+        }
+        .highlightbuildingblock{
+            border: #F19615 solid;
+            -moz-border-radius:4px;
+            -webkit-border-bottom-radius:4px;
+            border-radius:4px;
+        }
+        .hoverhighlight{
+            border: green solid;
+        }
+        .ctrllabel{
+            background-color: #fbf069;
+            border:1px solid black;
+
+        }
+        .ctrl{
+            background-color: #a9dba9;
+            border:1px solid black;
+
+        }
+        .highlightelements{
+            background-color: lightblue;
+        }
+    </style>
 '; ?>
+
+
 
 

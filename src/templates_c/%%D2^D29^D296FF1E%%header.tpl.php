@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-12-14 10:49:41
+<?php /* Smarty version 2.6.26, created on 2013-01-08 16:26:19
          compiled from themes/greenschoolerp/header.tpl */ ?>
 <html>
     <head>
