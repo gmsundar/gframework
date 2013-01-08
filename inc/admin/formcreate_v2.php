@@ -31,6 +31,7 @@ if ($_POST) {
 
 
     $cFormCreate->properties = json_decode($_POST['result']);
+//    print_r($cFormCreate->properties);
     $cFormCreate->html = $_POST['designer_hidden'];
     $cFormCreate->createPage();
     header("Location:formcreate_v2.php");
@@ -88,12 +89,12 @@ if ($_POST) {
         $rdata[$columnname]['javascript'] = $properties['javascript'];
         $rdata[$columnname]['add_on_fly'] = $properties['add_on_fly'];
         //validations
-        $validataion = (array) $properties['validation'];
-        $rdata[$columnname]['validation']['number'] = $validataion['number'];
-        $rdata[$columnname]['validation']['email'] = $validataion[''];
-        $rdata[$columnname]['validation']['custom'] = $validataion[''];
-        $rdata[$columnname]['validation']['custom_pattern'] = $validataion[''];
-        $rdata[$columnname]['validation']['unique'] = $validataion[''];
+        $validation = (array) $properties['validation'];
+        $rdata[$columnname]['validation']['number'] = $validation['number'];
+        $rdata[$columnname]['validation']['email'] = $validation[''];
+        $rdata[$columnname]['validation']['custom'] = $validation[''];
+        $rdata[$columnname]['validation']['custom_pattern'] = $validation[''];
+        $rdata[$columnname]['validation']['unique'] = $validation[''];
 
 
         $rdata[$columnname]['properties']['type'] = '';

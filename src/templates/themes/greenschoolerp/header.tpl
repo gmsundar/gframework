@@ -15,17 +15,22 @@
 </script>
 <link href="{$AppCssURL}TableTools.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="{$AppCssURL}geotheme1.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="{$AppCssURL}bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="{$AppCssURL}bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" />
 
 
 <link rel="stylesheet" href="{$AppCssURL}{$AppJqueryTheme}/jquery-ui.css"  />
 
-<script src="{$AppJsURL}jquery.js"></script>
-<script src="{$AppJsURL}jquery-ui.js" ></script>
-<script src="{$AppJsURL}jquery.cookie.js" ></script>
-<script src="{$AppJsURL}geo.base.js" ></script>
+
 
 </head>
 <body>
+    <script src="{$AppJsURL}jquery.js"></script>
+    <script src="{$AppJsURL}jquery-ui.js" ></script>
+    <script src="{$AppJsURL}jquery.cookie.js" ></script>
+    <script src="{$AppJsURL}geo.base.js" ></script>
+    <script src="{$AppJsURL}bootstrap.min.js"></script>
+
     <div id="header">
         {*        <div id="logo"><a href="{$AppURL}"><img src="{$AppImgURL}/logo.png" width="210" height="53"></a></div>*}
         <!-- /#logo -->

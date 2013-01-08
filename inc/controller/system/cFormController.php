@@ -113,7 +113,7 @@ class cFormController extends cController {
 
     function createControl() {
 
-        $this->scriptCode = '$content_details_array["formelements"][ "' . $this->currentControl['name'] . '"]=array(';
+        $this->scriptCode.= '$content_details_array["formelements"][ "' . $this->currentControl['name'] . '"]=array(';
         $this->scriptCode.="'name'=>'" . $this->currentControl['name'] . "',";
         $this->scriptCode.="'id'=>'" . $this->currentControl['name'] . "',";
         $this->scriptCode.="'value'=>\${$this->filename}Obj->setDefaultValue('" . $this->currentControl['properties']['default_value'] . "',\$data[" . $this->currentControl['name'] . "]),";
@@ -126,11 +126,18 @@ class cFormController extends cController {
                 $this->viewScript = '{include file="formelements/label.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
             case 'select':
+                if ($this->currentControl['properties']->{'data'}->{'static'}) {
+
+                    $this->scriptCode.=",'data'=>'" . $this->currentControl['properties']['data']['static'] . "'";
+                } else {
+                    $this->scriptCode.=",'data'=>'" . $this->currentControl['data'] . "'";
+                }
+
                 $this->viewScript = '{include file="formelements/select.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
             case 'checkbox':
 
-                $this->scriptCode.="',checked'=>'" . $this->currentControl['checked'] . "'";
+                $this->scriptCode.=",'checked'=>'" . $this->currentControl['checked'] . "'";
                 $this->viewScript = '{include file="formelements/checkbox.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
             case 'radio':
@@ -168,8 +175,6 @@ class cFormController extends cController {
             case 'image':
                 $this->viewScript = '{include file="formelements/image.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
-
-
             case 'audio':
                 $this->viewScript = '{include file="formelements/audio.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;

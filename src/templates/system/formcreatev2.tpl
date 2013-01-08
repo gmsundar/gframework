@@ -1,8 +1,6 @@
-<link href="{$AppCssURL}bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="{$AppCssURL}bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" />
+
 <link href="{$AppCssURL}bootstrap-editable.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="{$AppCssURL}jasny-bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="{$AppJsURL}bootstrap.min.js"></script>
 <script src="{$AppJsURL}bootstrap-editable.js"></script>
 <script src="{$AppJsURL}jquery.table.addrow.js"></script>
 <script src="{$AppJsURL}bootstrap-contextmenu.js"></script>
@@ -160,10 +158,10 @@
                                                             <tr>
                                                                 <td class="RowNumber">1</td>
                                                                 <td class="span5">
-                                                                    <input type="text" name="static_key_data[]" class="static_key_data input-mini" id="static_key_data" >
+                                                                    <input type="text" name="static_key_data" class="static_key_data input-mini" id="static_key_data" >
                                                                 </td>
                                                                 <td class="span5">
-                                                                    <input type="text" name="static_value_data[]" class="static_value_data input-mini" id="static_value_data" >
+                                                                    <input type="text" name="static_value_data" class="static_value_data input-mini" id="static_value_data" >
                                                                 </td>
                                                                 <td>
                                                                     <i class="icon-trash"></i>
@@ -751,7 +749,7 @@
                 $(this).tab('show');
             });
 
-            $("#static_data_table").tableAutoAddRow({autoAddRow: true, rowNumColumn: "rowNumber"}, function() {
+            $("#static_data_table").tableAutoAddRow({autoAddRow: true, rowNumColumn: "rowNumber", inputBoxAutoNumber: true}, function() {
                 return false;
             });
             $(".icon-trash").btnDelRow();
@@ -1006,6 +1004,8 @@
                  });
                  */
 
+
+
                 $('#column_display_name').val(resultdata[name]['display_name']);
                 geoJs.setSelectOptions('#edit_type', edit_json, true, resultdata[name]['edit_as']);
                 geoJs.setSelectOptions('#view_type', view_json, true, resultdata[name]['view_as']);
@@ -1057,14 +1057,25 @@
                 resultdata[name]['data']['orderby'] = $('#dependent_column_orderby').val();
 
                 var data = new Array();
-                $('.static_key_data').each(function(index) {
-                    if ($(this).val() !== '' && $('.static_value_data').val() !== '') {
-                        data[index] = new Array();
-                        data[index]['id'] = $(this).val();
-                        data[index]['value'] = $('.static_value_data').val();
-                    }
+                var len = $('static_data_table tr').length;
+                $('.static_data_table tr').each(function(index) {
 
+                    var indexcount = index + 1;
+                    var key = $(this).find('.static_key_data' + indexcount).val();
+                    var value = $(this).find('.static_key_data' + indexcount).val();
+                    if (key !== '' || value !== '') {
+                        data[index] = new Array();
+                        value = value ? value : key;
+                        key = key ? key : value;
+                        data[index]['id'] = key;
+                        data[index]['value'] = value;
+                    }
+                    if (len > 1) {
+                        $(this).find('.icon-trash').trigger('click');
+                    }
+                    len--;
                 });
+
 
                 resultdata[name]['data']['static'] = data;
                 resultdata[name]['add_on_fly'] = $('#addonfly').attr('checked');
