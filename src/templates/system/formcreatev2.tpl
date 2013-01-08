@@ -755,7 +755,7 @@
             $(".icon-trash").btnDelRow();
 
             $('#createlayout').click(function() {
-                createLayout()
+                createLayout();
             }).trigger('click');
 
             $('.buildingblock').live('click', function() {
@@ -768,9 +768,9 @@
                 } else {
                     var colname = $(this).html();
                     var data = '<tr id="' + $(this).attr('id') + '" class="buildingobj">\n';
-                    data += '<td data-context-menu="#tabletoolsmenu">'
+                    data += '<td data-context-menu="#tabletoolsmenu">';
                     data += '<span id="' + $(this).attr('id') + '_labl" class="ctrllabel">' + resultdata[colname]['display_name'];
-                    data += '</span>'
+                    data += '</span>';
                     data += '</td>';
                     data += '<td>';
                     data += '<span id="' + $(this).attr('id') + '_ctrl" class="ctrl">';
@@ -873,9 +873,9 @@
 
                 //$('.highlightelements').removeClass('icon-bold icon-italic icon-text-width icon-align-left icon-align-center icon-align-right');
                 if ($(this).hasClass('active')) {
-                    $('.highlightelements').addClass($(this).find('i').attr('class'))
+                    $('.highlightelements').addClass($(this).find('i').attr('class'));
                 } else {
-                    $('.highlightelements').removeClass($(this).find('i').attr('class'))
+                    $('.highlightelements').removeClass($(this).find('i').attr('class'));
                 }
 
             });
@@ -893,7 +893,7 @@
         }
         function customizeColumnLoad() {
             var name = $('#currentcol').val();
-            if (name != '') {
+            if (name !== '') {
 
 
                 var edit_type_Array = new Array();
@@ -1020,7 +1020,7 @@
         }
         function customizeColumnSave() {
             var name = $('#currentcol').val();
-            if (name != '') {
+            if (name !== '') {
                 resultdata[name]['display_name'] = $('#column_display_name').val();
                 resultdata[name]['mandatory'] = $('#mandatory').attr('checked');
                 resultdata[name]['edit_as'] = $('#edit_type option:selected').val();
