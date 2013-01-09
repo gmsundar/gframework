@@ -10,19 +10,12 @@
     var AppCssURL = '{$AppCssURL}';
     var AppScriptURL = '{$AppCssURL}';
     var AppViewUploadsURL = '{$AppViewUploadsURL}';
-
-
 </script>
 <link href="{$AppCssURL}TableTools.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="{$AppCssURL}geotheme1.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="{$AppCssURL}bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="{$AppCssURL}bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" />
-
-
 <link rel="stylesheet" href="{$AppCssURL}{$AppJqueryTheme}/jquery-ui.css"  />
-
-
-
 </head>
 <body>
     <script src="{$AppJsURL}jquery.js"></script>
@@ -41,5 +34,5 @@
                 <a href="index.php?file=logout">logout</a>
             {/if}
         </div>
-        <!-- /#user -->  </div>
+    </div>
 

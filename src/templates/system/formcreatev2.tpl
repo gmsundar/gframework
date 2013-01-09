@@ -158,10 +158,10 @@
                                                             <tr>
                                                                 <td class="RowNumber">1</td>
                                                                 <td class="span5">
-                                                                    <input type="text" name="static_key_data" class="static_key_data input-mini" id="static_key_data" >
+                                                                    <input type="text" name="static_key_data" class="static_key_data input-mini" id="static_key_data" value="" />
                                                                 </td>
                                                                 <td class="span5">
-                                                                    <input type="text" name="static_value_data" class="static_value_data input-mini" id="static_value_data" >
+                                                                    <input type="text" name="static_value_data" class="static_value_data input-mini" id="static_value_data" value="" />
                                                                 </td>
                                                                 <td>
                                                                     <i class="icon-trash"></i>
@@ -340,7 +340,7 @@
                                             </div>
                                             <div class="control-group">
                                                 <div class="controls">
-                                                    <textarea name="javascript" id="javascript" rows="" cols="" wrap="soft" placeholder="Javascript Code"></textarea>
+                                                    <textarea name="javascript" id="javascript" rows="" cols="" wrap="soft" placeholder="Javascript Code (Use Jquery)"></textarea>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -352,10 +352,51 @@
                                         <fieldset>
                                             <legend>View all <input type="checkbox" name="viewallcolumns" id="viewallcolumns" checked="">
                                             </legend>
+                                            <div class="btn-toolbar" style="margin: 0;">
+                                                <div class="btn-group">
+
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        Fields
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Action</a></li>
+                                                        <li><a href="#">Another action</a></li>
+                                                        <li><a href="#">Something else here</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">Separated link</a></li>
+                                                    </ul>
+
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn">+</button>
+                                                    <button class="btn">-</button>
+                                                    <button class="btn">/</button>
+                                                    <button class="btn">*</button>
+                                                    <button class="btn">(</button>
+                                                    <button class="btn">)</button>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn">1</button>
+                                                    <button class="btn">2</button>
+                                                    <button class="btn">3</button>
+                                                    <button class="btn">4</button>
+                                                    <button class="btn">5</button>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn">6</button>
+                                                    <button class="btn">7</button>
+                                                    <button class="btn">8</button>
+                                                    <button class="btn">9</button>
+                                                    <button class="btn">0</button>
+                                                </div>
+
+
+                                            </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="no_validations">Calculation</label>
                                                 <div class="controls">
-                                                    <input type="text" name="calculation" id="calculation" placeholder="Use data table objects">
+                                                    <input type="text" name="calculation" readonly id="calculation" placeholder="Use data table objects">
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -409,274 +450,7 @@
                         </table>
                     </div>
                     <div id="tabs-4" class="tab-pane">
-                        <div class="accordion" id="accordion2">
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event1">
-                                        List Page : before SQL
-                                    </a>
-                                </div>
-                                <div id="event1" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event2">
-                                        List Page : before process
-                                    </a>
-                                </div>
-                                <div id="event2" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event3">
-                                        List Page : after process
-                                    </a>
-                                </div>
-                                <div id="event3" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event4">
-                                        List Page : before display
-                                    </a>
-                                </div>
-                                <div id="event4" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event5">
-                                        List Page : after display
 
-                                    </a>
-                                </div>
-                                <div id="event5" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event6">
-                                        List Page : Onload (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event6" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event7">
-                                        View Page : before SQL
-
-                                    </a>
-                                </div>
-                                <div id="event7" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event8">
-                                        View Page : before process
-                                    </a>
-                                </div>
-                                <div id="event8" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event9">
-                                        View Page : after process
-                                    </a>
-                                </div>
-                                <div id="event9" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event10">
-                                        View Page : before display
-                                    </a>
-                                </div>
-                                <div id="event10" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event11">
-                                        View Page : Onload (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event11" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event12">
-                                        Delete : before process
-                                    </a>
-                                </div>
-                                <div id="event12" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event13">
-                                        Delete : after process
-                                    </a>
-                                </div>
-                                <div id="event13" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event14">
-                                        Add : Before Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event14" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event15">
-                                        Add : After Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event15" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event16">
-                                        Add : Before Record Added
-                                    </a>
-                                </div>
-                                <div id="event16" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event17">
-                                        Add : After Record Added
-                                    </a>
-                                </div>
-                                <div id="event17" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event18">
-                                        Add : OnLoad (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event18" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event19">
-                                        Edit: Before Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event19" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event20">
-                                        Edit: After Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event20" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event21">
-                                        Edit: After Record Added
-                                    </a>
-                                </div>
-                                <div id="event21" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event22">
-                                        Edit: OnLoad (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event22" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -828,6 +602,8 @@
                 $('#myTab a[href="#tabs-3"]').tab('show');
                 $('#edit_type').trigger('change');
                 $('#view_type').trigger('change');
+
+                e.preventDefault();
 
             });
             $('.close').live('click', function() {
@@ -1003,10 +779,18 @@
 
                  });
                  */
-                var staticdatasize = resultdata[name]['data']['static'].length;
-                for (i = 0; i < staticdatasize; i++) {
+                /*var staticdatasize = resultdata[name]['data']['static'].length;
+                 for (i = 0; i < staticdatasize; i++) {
 
-                }
+                 }*/
+
+                var index = 2;
+                jQuery.map(resultdata[name]['data']['static'], function(value, key) {
+                    console.log(index)
+                    $('#static_data_table tr:nth-child(' + index + ')').find('.static_key_data').val(value['id']).trigger('keyup');
+                    $('#static_data_table tr:nth-child(' + index + ')').find('.static_value_data').val(value['value']);
+                    index++;
+                });
 
                 $('#column_display_name').val(resultdata[name]['display_name']);
                 geoJs.setSelectOptions('#edit_type', edit_json, true, resultdata[name]['edit_as']);
@@ -1057,28 +841,31 @@
                 resultdata[name]['data']['join'] = $('#dependent_join').val();
                 resultdata[name]['data']['where'] = $('#dependent_column_condition').val();
                 resultdata[name]['data']['orderby'] = $('#dependent_column_orderby').val();
-
+                console.log("Before");
+                console.log(resultdata[name]['data']['static']);
                 var data = new Array();
-                var len = $('static_data_table tr').length;
-                $('.static_data_table tr').each(function(index) {
+                var len = $('#static_data_table tr').length;
+                $('#static_data_table tr').each(function(index, element) {
 
-                    var indexcount = index + 1;
-                    var key = $(this).find('.static_key_data' + indexcount).val();
-                    var value = $(this).find('.static_key_data' + indexcount).val();
+                    var indexcount = index - 1;
+                    var key = $(element).find('.static_key_data').val();
+                    var value = $(element).find('.static_value_data').val();
+
                     if (key !== '' || value !== '') {
-                        data[index] = new Array();
+                        data[indexcount] = new Array();
                         value = value ? value : key;
                         key = key ? key : value;
-                        data[index]['id'] = key;
-                        data[index]['value'] = value;
+                        data[indexcount]['id'] = key;
+                        data[indexcount]['value'] = value;
                     }
                     if (len > 1) {
-                        $(this).find('.icon-trash').trigger('click');
+                        $(element).find('.icon-trash').trigger('click');
                     }
                     len--;
                 });
 
-
+                console.log("After");
+                console.log(resultdata[name]['data']['static']);
                 resultdata[name]['data']['static'] = data;
                 resultdata[name]['add_on_fly'] = $('#addonfly').attr('checked');
                 resultdata[name]['javascript'] = $('#javascript').val();
