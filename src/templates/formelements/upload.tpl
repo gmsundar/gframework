@@ -1,9 +1,15 @@
-<tr>
-<td>{$fieldLabel}:</td>
-<td><input type="file" class="file_1" /></td>
-<td>
-    <div class="bubble-left"></div>
-    <div class="bubble-inner">JPEG, GIF 5MB max per image</div>
-    <div class="bubble-right"></div>
-</td>
-</tr>
+<div class="input-prepend input-append">
+{if $inputDetails.prepend neq ''}    <span class="add-on">{$inputDetails.prepend}</span>{/if}
+<input
+    type="file"
+    class="{$inputDetails.class}"
+    style="{$inputDetails.style}"
+    name="{$inputDetails.name}"
+    id="{$inputDetails.id}"
+    value="{$inputDetails.value}"
+    placeholder="{$inputDetails.placeholder}"
+{if $inputDetails.readonly!=''} readonly {/if}
+{if $inputDetails.mandatory neq ''} required {/if}
+/>
+{if $inputDetails.append neq ''}  <span class="add-on">{$inputDetails.append}</span>{/if}
+</div>

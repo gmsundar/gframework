@@ -1,19 +1,16 @@
-{$inputDetails.preappend}
-{if $inputDetails.readonly==''}
-    <textarea 
-        class="textarea"
-        name="{if $inputDetails.name!=''}{$inputDetails.name}{else}{$inputDetails.id}{/if}" 
-        id='{if $inputDetails.id!=''}{$inputDetails.id}{else}{$inputDetails.name}{/if}'
-    {if $inputDetails.readonly!=''} readonly="readonly"{/if}
-    {$inputDetails.required}
+<div class="input-prepend input-append">
+{if $inputDetails.prepend neq ''}    <span class="add-on">{$inputDetails.prepend}</span>{/if}
+<textarea
+    class="textarea"
+    name="{$inputDetails.name}"
+    id='{$inputDetails.id}'
     placeholder="{$inputDetails.placeholder}"
-    rows="{$inputDetails.rows}" 
+    rows="{$inputDetails.rows}"
     cols="{$inputDetails.cols}"
-    wrap="soft">{$inputDetails.value}</textarea>
-{else}
-    <label>
-        {$inputDetails.value}
-    </label>
-{/if}
-{$inputDetails.append}
+    wrap="soft"
+{if $inputDetails.readonly!=''} readonly {/if}
+{if $inputDetails.mandatory neq ''} required {/if}
+>{$inputDetails.value}</textarea>
+{if $inputDetails.append neq ''}  <span class="add-on">{$inputDetails.append}</span>{/if}
+</div>
 

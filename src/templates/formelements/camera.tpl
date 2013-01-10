@@ -11,7 +11,6 @@
         column="{$inputDetails.photoimage_add.column}" />
     <input type="hidden" id="" name="" value="" />
     <input type="hidden" id="" name="" value="" />
-
     <button type="button" class="btn"><i class="icon-camera"></i></button>
 </div>
 

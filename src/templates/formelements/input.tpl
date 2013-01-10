@@ -1,4 +1,5 @@
-{$inputDetails.preappend}
+<div class="input-prepend input-append">
+{if $inputDetails.prepend neq ''}    <span class="add-on">{$inputDetails.prepend}</span>{/if}
 <input
     type="{$inputDetails.type}"
     class="{$inputDetails.class}"
@@ -10,7 +11,8 @@
 {if $inputDetails.placeholder!=''}placeholder="{$inputDetails.placeholder}"{/if}
 {if $inputDetails.size!=''}size="{$inputDetails.size}"{/if}
 {if $inputDetails.readonly!=''} readonly {/if}
-{$inputDetails.mandatory}
-{$inputDetails.event}
+{if $inputDetails.mandatory neq ''} required {/if}
+
 />
-{$inputDetails.append}
+{if $inputDetails.append neq ''}  <span class="add-on">{$inputDetails.append}</span>{/if}
+</div>

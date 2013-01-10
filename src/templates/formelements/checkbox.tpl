@@ -1,4 +1,5 @@
-{$inputDetails.preappend}
+<div class="input-prepend input-append">
+{if $inputDetails.prepend neq ''}    <span class="add-on">{$inputDetails.prepend}</span>{/if}
 <input
     type="checkbox"
     class="{$inputDetails.class}"
@@ -8,7 +9,9 @@
     value="{$inputDetails.value}"
 {if $inputDetails.checked!=''} checked {/if}
 {if $inputDetails.readonly!=''} readonly{/if}
-{$inputDetails.mandatory}
-{$inputDetails.event}
+{if $inputDetails.mandatory neq ''} required {/if}
+
 />
-{$inputDetails.append}
+{if $inputDetails.append neq ''}  <span class="add-on">{$inputDetails.append}</span>{/if}
+
+</div>
