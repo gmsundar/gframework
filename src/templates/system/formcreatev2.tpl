@@ -242,20 +242,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="data-textbox ctrlproperties" style="display: none">
+                                            <div class="data-text ctrlproperties" style="display: none">
                                                 <table>
                                                     <tr>
                                                         <td>Type</td>
                                                         <td>
-                                                            <select class="" id="data_textbox_type">
-                                                                <option value="alphanumeric" >Normal</option>
+                                                            <select class="" id="data_text_type">
+                                                                <option value="" >Normal</option>
                                                                 <option value="password" >Password</option>
                                                                 <option value="number" >Number</option>
                                                                 <option value="email" >Email</option>
                                                                 <option value="range" >Range</option>
                                                                 <option value="sequence" >Sequence</option>
-                                                                <option value="readonly">ReadOnly</option>
-                                                                <option value="hidden" >Hidden</option>
                                                                 <option value="percent" >Percent</option>
                                                                 <option value="currency" >Currency</option>
                                                             </select>
@@ -352,43 +350,43 @@
                                         <fieldset>
                                             <legend>View all <input type="checkbox" name="viewallcolumns" id="viewallcolumns" checked="">
                                             </legend>
-                                            <div class="btn-toolbar" style="margin: 0;">
+                                            <div class="btn-toolbar calculation" style="margin: 0;">
                                                 <div class="btn-group">
 
                                                     <button class="btn dropdown-toggle" data-toggle="dropdown">
                                                         Fields
                                                         <span class="caret"></span>
                                                     </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">Action</a></li>
-                                                        <li><a href="#">Another action</a></li>
-                                                        <li><a href="#">Something else here</a></li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="#">Separated link</a></li>
+                                                    <ul class="dropdown-menu calculation_fields">
+
                                                     </ul>
+                                                    <button class="btn backspace">&Longleftarrow;</button>
+                                                    <button class="btn calculation-clear">C</button>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn calculation-operator">+</button>
+                                                    <button class="btn calculation-operator">-</button>
+                                                    <button class="btn calculation-operator">/</button>
+                                                    <button class="btn calculation-operator">*</button>
+                                                    <button class="btn calculation-operator">(</button>
+                                                    <button class="btn calculation-operator">)</button>
+
 
                                                 </div>
                                                 <div class="btn-group">
-                                                    <button class="btn">+</button>
-                                                    <button class="btn">-</button>
-                                                    <button class="btn">/</button>
-                                                    <button class="btn">*</button>
-                                                    <button class="btn">(</button>
-                                                    <button class="btn">)</button>
+                                                    <button class="btn calculation-number">1</button>
+                                                    <button class="btn calculation-number">2</button>
+                                                    <button class="btn calculation-number">3</button>
+                                                    <button class="btn calculation-number">4</button>
+                                                    <button class="btn calculation-number">5</button>
                                                 </div>
                                                 <div class="btn-group">
-                                                    <button class="btn">1</button>
-                                                    <button class="btn">2</button>
-                                                    <button class="btn">3</button>
-                                                    <button class="btn">4</button>
-                                                    <button class="btn">5</button>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn">6</button>
-                                                    <button class="btn">7</button>
-                                                    <button class="btn">8</button>
-                                                    <button class="btn">9</button>
-                                                    <button class="btn">0</button>
+                                                    <button class="btn calculation-number">6</button>
+                                                    <button class="btn calculation-number">7</button>
+                                                    <button class="btn calculation-number">8</button>
+                                                    <button class="btn calculation-number">9</button>
+                                                    <button class="btn calculation-number">0</button>
+                                                    <button class="btn calculation-operator">.</button>
                                                 </div>
 
 
@@ -572,7 +570,34 @@
                     helper: fixHelper
                 }).disableSelection();
 
-//                $('.buildingobj').contextmenu();
+                //                $('.buildingobj').contextmenu();
+            });
+            $.map(resultdata, function(value, key) {
+                $('.calculation_fields').append('<li><a id="' + key + '"  class="calculation_field">' + key + '</a></li>');
+            });
+            $('.calculation-clear', '.backspace').click(function(e) {
+
+                if ($(this).hasClass('calculation-clear')) {
+                    $('#calculation').val('');
+                } else {
+                    //add backspace.
+                }
+            });
+            $('.calculation_field', '.calculation-operator', '.calculation-number').click(function(e) {
+
+                var currentformula = $('#calculation').val();
+                if ($(this).hasClass('calculation_field')) {
+                    currentformula = currentformula + " [" + $(this).html() + "]";
+
+                } else if ($(this).hasClass('calculation-operator')) {
+                    currentformula = currentformula + " " + $(this).html() + " ";
+                } else {
+                    currentformula = currentformula + " " + $(this).html() + " ";
+                }
+                $('#calculation').val(currentformula);
+
+                e.preventDefault();
+                e.stopPropagation();
             });
 
             //$('.formcontrols').trigger('click');
@@ -590,10 +615,14 @@
 
 
             }).css('cursor', 'pointer');
+            $('.data_save').click(function() {
+                customizeColumnSave();
+
+            });
             $('.buildingobj').live('click', function(e) {
 
-
-                customizeColumnSave();
+                console.log('Building block');
+                //  customizeColumnSave();
 
 
                 $('#currentcol').val($(this).attr('id'));
@@ -635,12 +664,14 @@
                 $('.ctrlproperties').hide();
                 $('.data-' + $(this).val()).show();
                 $('.data-' + $('#view_type').val()).show();
+                console.log('edit trigger');
                 customizeColumnSave();
             });
             $('#view_type').change(function() {
                 $('.ctrlproperties').hide();
                 $('.data-' + $(this).val()).show();
                 $('.data-' + $('#edit_type').val()).show();
+                console.log('view trigger');
                 customizeColumnSave();
             });
 
@@ -736,7 +767,7 @@
 
                 edit_json = edit_json.substring(0, edit_json.length - 1) + "]";
                 view_json = view_json.substring(0, view_json.length - 1) + "]";
-//Loading values
+                //Loading values
 
 
                 $('#mandatory').attr('checked', resultdata[name]['mandatory']);
@@ -783,10 +814,25 @@
                  for (i = 0; i < staticdatasize; i++) {
 
                  }*/
+                $('#data_column').val(resultdata[name]['data']['cols']);
+                $('#data_table').val(resultdata[name]['data']['from']);
+                $('#data_table_join').val(resultdata[name]['data']['join']);
+                $('#data_condition').val(resultdata[name]['data']['where']);
+                $('#data_orderby').val(resultdata[name]['data']['orderby']);
+                $('#validations').val(resultdata[name]['validation']['type']);
+
+                $('#data_text_type').val(resultdata[name]['properties']['type']);
+                $('#minvalue').val(resultdata[name]['properties']['min']);
+                $('#maxvalue').val(resultdata[name]['properties']['max']);
+                $('#stepvalue').val(resultdata[name]['properties']['step']);
+                $('#autoseq_pre').val(resultdata[name]['properties']['sequence_prepend']);
+                $('#autoseq_app').val(resultdata[name]['properties']['sequence_append']);
+
 
                 var index = 2;
-                jQuery.map(resultdata[name]['data']['static'], function(value, key) {
-                    console.log(index)
+                var staticdata = resultdata[name]['data']['static'];
+                jQuery.map(staticdata, function(value, key) {
+                    console.log(index);
                     $('#static_data_table tr:nth-child(' + index + ')').find('.static_key_data').val(value['id']).trigger('keyup');
                     $('#static_data_table tr:nth-child(' + index + ')').find('.static_value_data').val(value['value']);
                     index++;
@@ -822,7 +868,7 @@
                 resultdata[name]['validation']['custom_pattern'] = $('#validation_pattern_value').val();
                 resultdata[name]['validation']['type'] = $('#validations').val();
 
-                resultdata[name]['properties']['type'] = $('#data_textbox_type').val();
+                resultdata[name]['properties']['type'] = $('#data_text_type').val();
                 resultdata[name]['properties']['min'] = $('#minvalue').val();
                 resultdata[name]['properties']['max'] = $('#maxvalue').val();
                 resultdata[name]['properties']['step'] = $('#stepvalue').val();
@@ -836,36 +882,35 @@
                 resultdata[name]['dependent'][i]['orderby'] = $('#dependent_column_orderby').val();
                 resultdata[name]['dependent'][i]['applyto'] = $('#dependent').val();
 
-                resultdata[name]['data']['cols'] = $('#dependent_column').val();
-                resultdata[name]['data']['from'] = $('#dependent_table').val();
-                resultdata[name]['data']['join'] = $('#dependent_join').val();
-                resultdata[name]['data']['where'] = $('#dependent_column_condition').val();
-                resultdata[name]['data']['orderby'] = $('#dependent_column_orderby').val();
-                console.log("Before");
-                console.log(resultdata[name]['data']['static']);
-                var data = new Array();
+                resultdata[name]['data']['cols'] = $('#data_column').val();
+                resultdata[name]['data']['from'] = $('#data_table').val();
+                resultdata[name]['data']['join'] = $('#data_table_join').val();
+                resultdata[name]['data']['where'] = $('#data_condition').val();
+                resultdata[name]['data']['orderby'] = $('#data_orderby').val();
+
+                var data = new Object();
                 var len = $('#static_data_table tr').length;
                 $('#static_data_table tr').each(function(index, element) {
+                    if (index > 0) {
+                        var key = $(element).find('.static_key_data').val();
+                        var value = $(element).find('.static_value_data').val();
 
-                    var indexcount = index - 1;
-                    var key = $(element).find('.static_key_data').val();
-                    var value = $(element).find('.static_value_data').val();
+                        if (key !== '' || value !== '') {
 
-                    if (key !== '' || value !== '') {
-                        data[indexcount] = new Array();
-                        value = value ? value : key;
-                        key = key ? key : value;
-                        data[indexcount]['id'] = key;
-                        data[indexcount]['value'] = value;
+                            value = value ? value : key;
+                            key = key ? key : value;
+                            data[index] = new Array(key, value);
+
+                        }
+                        if (len > 1) {
+                            // $(element).find('.icon-trash').trigger('click');
+                        }
+                        len--;
                     }
-                    if (len > 1) {
-                        $(element).find('.icon-trash').trigger('click');
-                    }
-                    len--;
+
                 });
 
-                console.log("After");
-                console.log(resultdata[name]['data']['static']);
+
                 resultdata[name]['data']['static'] = data;
                 resultdata[name]['add_on_fly'] = $('#addonfly').attr('checked');
                 resultdata[name]['javascript'] = $('#javascript').val();

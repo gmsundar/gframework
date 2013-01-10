@@ -10,12 +10,12 @@ class cController extends cModel {
 
     public $id = NULL;
 
-    public function getSelectData($table, $columns = NULL, $condition = NULL, $orderby = NULL) {
+    public function getSelectData($table, $columns = NULL, $condition = NULL, $orderby = NULL, $joincondition = NULL) {
 
 
         $this->table = $table;
         $this->column = $columns;
-
+        $this->join_condition = $joincondition;
         $data = $this->addWhereCondition($condition)->addOrderBy($orderby)->select()->executeRead();
 
         if (is_array($data)) {

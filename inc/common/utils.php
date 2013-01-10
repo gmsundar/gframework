@@ -832,4 +832,20 @@ function createLinkUrl($params) {
     return $url;
 }
 
+function objectToArray($data) {
+
+    $result = array();
+    $data = (array) $data;
+    foreach ($data as $key => $value) {
+        if (is_object($value))
+            $value = (array) $value;
+        if (is_array($value))
+            $result[$key] = objectToArray($value);
+        else
+            $result[$key] = $value;
+    }
+
+    return $result;
+}
+
 ?>
