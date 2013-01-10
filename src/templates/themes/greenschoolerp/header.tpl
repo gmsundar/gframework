@@ -23,6 +23,7 @@
     <script src="{$AppJsURL}jquery.cookie.js" ></script>
     <script src="{$AppJsURL}geo.base.js" ></script>
     <script src="{$AppJsURL}bootstrap.min.js"></script>
+    <script src="{$AppJsURL}bootstrap.datepicker.js"></script>
 
     <div id="header">
         {*        <div id="logo"><a href="{$AppURL}"><img src="{$AppImgURL}/logo.png" width="210" height="53"></a></div>*}
