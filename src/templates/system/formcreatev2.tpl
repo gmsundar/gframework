@@ -248,7 +248,7 @@
                                                         <td>Type</td>
                                                         <td>
                                                             <select class="" id="data_text_type">
-                                                                <option value="" >Normal</option>
+                                                                <option value="text" >Normal</option>
                                                                 <option value="password" >Password</option>
                                                                 <option value="number" >Number</option>
                                                                 <option value="email" >Email</option>

@@ -1,7 +1,8 @@
-<?php /* Smarty version 2.6.26, created on 2013-01-10 16:25:48
+<?php /* Smarty version 2.6.26, created on 2013-01-10 16:47:09
          compiled from formelements/input.tpl */ ?>
-<div class="input-prepend input-append">
-<?php if ($this->_tpl_vars['inputDetails']['prepend'] != ''): ?>    <span class="add-on"><?php echo $this->_tpl_vars['inputDetails']['prepend']; ?>
+
+<div class="<?php if ($this->_tpl_vars['inputDetails']['prepend'] != ''): ?>input-prepend<?php endif; ?> <?php if ($this->_tpl_vars['inputDetails']['append'] != ''): ?>input-append<?php endif; ?>">
+<?php if ($this->_tpl_vars['inputDetails']['prepend'] != ''): ?> <span class="add-on"><?php echo $this->_tpl_vars['inputDetails']['prepend']; ?>
 </span><?php endif; ?>
 <input
     type="<?php echo $this->_tpl_vars['inputDetails']['type']; ?>
@@ -23,12 +24,8 @@
 <?php if ($this->_tpl_vars['inputDetails']['size'] != ''): ?>size="<?php echo $this->_tpl_vars['inputDetails']['size']; ?>
 "<?php endif; ?>
 <?php if ($this->_tpl_vars['inputDetails']['readonly'] != ''): ?> readonly <?php endif; ?>
-<?php echo $this->_tpl_vars['inputDetails']['mandatory']; ?>
-
-<?php echo $this->_tpl_vars['inputDetails']['event']; ?>
-
+<?php if ($this->_tpl_vars['inputDetails']['mandatory'] != ''): ?> required <?php endif; ?>
 />
 <?php if ($this->_tpl_vars['inputDetails']['append'] != ''): ?>  <span class="add-on"><?php echo $this->_tpl_vars['inputDetails']['append']; ?>
 </span><?php endif; ?>
-
 </div>

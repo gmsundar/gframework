@@ -156,6 +156,7 @@ class cFormController extends cController {
                 break;
             case 'text':
 
+
                 $this->scriptCode.=",'type'=>'" . $this->currentControl['properties']['properties']['type'] . "'";
                 $this->viewScript = '{include file="formelements/input.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
