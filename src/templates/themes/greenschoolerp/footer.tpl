@@ -1,15 +1,10 @@
-{literal}
-    <script>
-   
-    </script>
-{/literal}
-<!-- start footer -->     
-<div id="footer">
+<hr>
 
-    <p> <a href="{$CompanyURL}">{$CompanyName} &copy; &nbsp;</a></p>
+<footer>
+    <p>&copy; Company 2012</p>
+</footer>
+
 </div>
-</div>
-<!-- end footer -->
 
 </body>
 </html>

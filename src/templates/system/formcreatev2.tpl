@@ -487,7 +487,7 @@
         <input type="hidden" value='{$content_details_array.formelements.resultdatajson}' name="result" id="result"/>
         <input type="hidden" value='' name="currentcol" id="currentcol"/>
         <input type="hidden" value='' name="designer_hidden" id="designer_hidden"/>
-        <a href="#" class="btn" id="preview">Preview[New Tab]</a>
+        <button class="btn submit-login" id="preview">Preview[New Tab]</button>
         <a href="#" class="btn" id="save">Save</a>
         <ul id="tabletoolsmenu" class="context-menu dropdown-menu">
             <li><a href="#">Action 1</a></li>

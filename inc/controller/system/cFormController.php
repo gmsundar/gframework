@@ -25,6 +25,7 @@ class cFormController extends cController {
     public $filename = "";
     private $scriptCode = "";
     private $controllerCode = "";
+    private $jsCode = "";
     public $projectFile = "gapp.gpr";
     public $projectFilePath = "";
 
@@ -56,9 +57,9 @@ class cFormController extends cController {
             $dom = new DOMDocument();
             @$dom->loadHTML($this->html);
             $dom->encoding = 'utf-8';
-            # remove <!DOCTYPE
+# remove <!DOCTYPE
             $dom->removeChild($dom->firstChild);
-            # remove <html><body></body></html>
+# remove <html><body></body></html>
             $dom->replaceChild($dom->firstChild->firstChild->firstChild, $dom->firstChild);
 
             foreach ($dom->getElementsByTagName('span') as $node) {
@@ -75,7 +76,7 @@ class cFormController extends cController {
                         $node->nodeValue = $this->viewScript;
                         $this->viewScript = "";
                     } else {
-                        //$node->nodeValue = 'Sundar';
+//$node->nodeValue = 'Sundar';
                     }
                 }
             }
@@ -93,6 +94,11 @@ class cFormController extends cController {
                 }
             }
 
+            $script = $dom->createElement('script');
+// Creating an empty text node forces <script></script>
+            $script->appendChild($dom->createTextNode('{literal}' . $this->jsCode . '{/literal}'));
+            $dom->appendChild($script);
+
             file_put_contents($this->tplPath . "/" . $this->filename . ".tpl", $dom->saveHTML());
         }
     }
@@ -108,6 +114,31 @@ class cFormController extends cController {
         file_put_contents($this->scriptsPath . "/" . $this->filename . ".php", $this->scriptCode);
     }
 
+    function createPageJS() {
+        print_r($this->currentControl['properties']);
+        switch ($this->currentControl['type']) {
+            case 'date':
+                $this->jsCode.="$('#" . $this->currentControl['name'] . "_display_date').datepicker({
+                    'changeMonth': true,
+                    'changeYear': true,
+                    'dateFormat':'DD, d MM, yy',
+                    'altField': '#" . $this->currentControl['name'] . "',
+                    'altFormat': 'yy-mm-dd'";
+                if ($this->currentControl['properties']['properties']['min'] != '') {
+                    $this->jsCode.=",minDate: '" . $this->currentControl['properties']['properties']['max'] . "'";
+                }
+
+                if ($this->currentControl['properties']['properties']['max'] != '') {
+                    $this->jsCode.=",maxDate: '" . $this->currentControl['properties']['properties']['max'] . "'";
+                }
+
+
+                $this->jsCode.="});
+\n";
+                break;
+        }
+    }
+
     function addSequenceCode() {
 
     }
@@ -115,12 +146,12 @@ class cFormController extends cController {
     function createControl() {
 
         $this->scriptCode.= '$content_details_array["formelements"][ "' . $this->currentControl['name'] . '"]=array(';
-        $this->scriptCode.="'name'=>'" . $this->currentControl['name'] . "',";
-        $this->scriptCode.="'id'=>'" . $this->currentControl['name'] . "',";
-        $this->scriptCode.="'value'=>\${$this->filename}Obj->setDefaultValue('" . $this->currentControl['properties']['default_value'] . "',\$data['" . $this->currentControl['name'] . "']),";
+        $this->scriptCode.="'name' => '" . $this->currentControl['name'] . "', ";
+        $this->scriptCode.="'id' => '" . $this->currentControl['name'] . "', ";
+        $this->scriptCode.="'value' => \${$this->filename}Obj->setDefaultValue('" . $this->currentControl['properties']['default_value'] . "', \$data['" . $this->currentControl['name'] . "']), ";
 
-        $this->scriptCode.="'mandatory'=>'" . $this->currentControl['properties']['mandatory'] . "',";
-        $this->scriptCode.="'class'=>'" . $this->currentControl['properties']['class'] . "'";
+        $this->scriptCode.="'mandatory' => '" . $this->currentControl['properties']['mandatory'] . "', ";
+        $this->scriptCode.="'class' => '" . $this->currentControl['properties']['class'] . "'";
 
         switch ($this->currentControl['type']) {
             case 'label':
@@ -128,15 +159,16 @@ class cFormController extends cController {
                 break;
             case 'select':
 
+
                 if ($this->currentControl['properties']['data']['from'] !== '' && $this->currentControl['properties']['data']['cols'] !== '') {
-                    $this->scriptCode.=",'data'=>\${$this->filename}Obj->getSelectData('" . $this->currentControl['properties']['data']['from'] . "','id," . $this->currentControl['properties']['data']['cols'] . "','" . $this->currentControl['properties']['data']['where'] . "','" . $this->currentControl['properties']['data']['orderby'] . "','" . $this->currentControl['properties']['data']['join'] . "')";
+                    $this->scriptCode.=", 'data' => \${$this->filename}Obj->getSelectData('" . $this->currentControl['properties']['data']['from'] . "', 'id," . $this->currentControl['properties']['data']['cols'] . "', '" . $this->currentControl['properties']['data']['where'] . "', '" . $this->currentControl['properties']['data']['orderby'] . "', '" . $this->currentControl['properties']['data']['join'] . "')";
                 } else {
                     if (is_array($this->currentControl['properties']['data']['static'])) {
-                        $this->scriptCode.=",'data'=>array(";
+                        $this->scriptCode.=", 'data' => array(";
                         foreach ($this->currentControl['properties']['data']['static'] as $key => $value) {
-                            $this->scriptCode.="'" . $key . "'=>'" . $value . "',";
+                            $this->scriptCode.="'" . $value[0] . "' => '" . $value[1] . "', ";
                         }
-                        $this->scriptCode = rtrim($this->scriptCode, ",");
+                        $this->scriptCode = rtrim($this->scriptCode, ", ");
                         $this->scriptCode.=")";
                     }
                 }
@@ -145,21 +177,21 @@ class cFormController extends cController {
                 break;
             case 'checkbox':
                 if ($this->currentControl['properties']['default_value'])
-                    $this->scriptCode.=",'checked'=>'" . $this->currentControl['checked'] . "'";
+                    $this->scriptCode.=", 'checked' => '" . $this->currentControl['checked'] . "'";
                 $this->viewScript = '{include file="formelements/checkbox.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
             case 'radio':
-                print_r($this->currentControl['properties']);
                 if ($this->currentControl['properties']['default_value'])
-                    $this->scriptCode.=",'checked'=>'" . $this->currentControl['checked'] . "'";
+                    $this->scriptCode.=", 'checked' => '" . $this->currentControl['checked'] . "'";
                 $this->viewScript = '{include file="formelements/radio.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
             case 'text':
-                $this->scriptCode.=",'type'=>'" . $this->currentControl['properties']['properties']['type'] . "'";
+                $this->scriptCode.=", 'type' => '" . $this->currentControl['properties']['properties']['type'] . "'";
                 $this->viewScript = '{include file="formelements/input.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
             case 'date':
                 $this->viewScript = '{include file="formelements/date.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
+                $this->createPageJS();
                 break;
             case 'datetime':
                 $this->viewScript = '{include file="formelements/datetime.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
@@ -202,7 +234,8 @@ class cFormController extends cController {
                 $this->viewScript = '{include file="formelements/html.tpl" inputDetails=$content_details_array.formelements.' . $this->currentControl['name'] . '}';
                 break;
         }
-        $this->scriptCode.=");";
+        $this->scriptCode.=");
+";
     }
 
     function createLayout() {
