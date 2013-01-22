@@ -10,7 +10,6 @@
         table="{$inputDetails.photoimage_add.table}"
         column="{$inputDetails.photoimage_add.column}" />
     <input type="hidden" id="{$inputDetails.photoimage_add.name}" name="{$inputDetails.photoimage_add.name}" value="{$inputDetails.photoimage_add.src}" />
-
     <button type="button" class="btn loadtakephoto"><i class="icon-camera"></i></button>
 </div>
 
