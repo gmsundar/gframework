@@ -41,6 +41,26 @@ class cFormController extends cController {
         $this->controllerCode = "<?php include_once('system/cController.php');" .
                 'class c' . ucwords($this->filename) . ' extends cController {';
 
+
+        $this->controllerCode .='//Events for forms';
+        $this->controllerCode .='public function beforeAdd(){
+
+        }';
+        $this->controllerCode .='public function afterAdd(){
+
+        }';
+        $this->controllerCode .='public function beforeEdit(){
+
+        }';
+        $this->controllerCode .='public function afterEdit(){
+
+        }';
+        $this->controllerCode .='public function beforeView(){
+
+        }';
+        $this->controllerCode .='public function beforeViewAll(){
+
+        }';
         $this->controllerCode .='} ' . "\n" . ' ?>';
         file_put_contents($this->controllerPath . "/c" . ucwords($this->filename) . ".php", $this->controllerCode);
     }
@@ -93,24 +113,67 @@ class cFormController extends cController {
                     $node->parentNode->removeChild($node);
                 }
             }
-
+            $submit = $dom->createElement('button', 'Submit');
+            //creating submit button @ the end of page
+            $submit->setAttribute('type', 'submit');
+            $submit->setAttribute('class', 'btn');
+            $dom->appendChild($submit);
             $script = $dom->createElement('script');
-// Creating an empty text node forces <script></script>
+            // Creating an empty text node forces <script></script>
+
             $script->appendChild($dom->createTextNode('{literal}' . $this->jsCode . '{/literal}'));
             $dom->appendChild($script);
-
-            file_put_contents($this->tplPath . "/" . $this->filename . ".tpl", $dom->saveHTML());
+            file_put_contents($this->tplPath . "/" . $this->filename . ".tpl", "<form method='POST'>" . $dom->saveHTML() . "</form>");
         }
     }
 
     function createScript() {
 
+        $scriptCode = $this->scriptCode;
 
         $this->scriptCode = "<?php " .
                 'include_once AppRoot . AppController . "c' . ucwords($this->filename) . '.php";' .
-                '$' . $this->filename . 'Obj = new c' . $this->filename . '();' .
-                $this->scriptCode .
-                "?>";
+                '$' . $this->filename . 'Obj = new c' . $this->filename . '();';
+
+        $this->scriptCode.='$action = $get["action"]?$get["action"]:"viewall";';
+        $this->scriptCode.='$' . $this->filename . 'Obj ->id = $id = $get["id"];';
+
+        $this->scriptCode.='if($post){
+
+$' . $this->filename . 'Obj->action = $post["formaction"];
+    $content_details_array["page"] = $' . $this->filename . '>curd();
+
+    if ($get["type"] == "") {
+        redirect("' . $this->filename . '&id=".$' . $this->filename . 'Obj->id."&action=view");
+    }else{
+    $data=$' . $this->filename . 'Obj->getSelectData($get["file"], $get["columns"], "id=".$' . $this->filename . 'Obj->id, "");
+        echo json_encode($data);
+        exit;
+    }
+
+} else {
+
+     if ($action == "view" || $action == "edit") {
+
+        if($action == "edit"){
+            $' . $this->filename . 'Obj->action = "editview";
+         }else{
+            $' . $this->filename . 'Obj->action = "view";
+         }
+
+
+        $defaultdata = $' . $this->filename . 'Obj->curd();
+        $defaultdata = $defaultdata[0];
+    } elseif ($action == "delete") {
+    $' . $this->filename . 'Obj->action=$action;
+    $content_details_array["page"] = $' . $this->filename . 'Obj->curd();
+    redirect("' . $this->filename . '&action=viewall");
+    }
+
+}';
+
+
+        $this->scriptCode .=$scriptCode . "?>";
         file_put_contents($this->scriptsPath . "/" . $this->filename . ".php", $this->scriptCode);
     }
 
