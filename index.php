@@ -21,7 +21,6 @@ if (is_readable($languageFileName)) {
 
 $content_details_array['__localization']['data'] = $__localization;
 $ScriptFileName = AppRoot . AppScriptURL . $get['f'] . '.php';
-print_r($get);
 
 
 if (is_readable($ScriptFileName)) {
@@ -38,6 +37,7 @@ $smarty->assign('AppChartURL', AppChartURL);
 $smarty->assign('AppImgURL', AppImgURL);
 $smarty->assign('AppScriptURL', AppScriptURL);
 $smarty->assign('AppTheme', AppTheme);
+$smarty->assign('AppName', AppName);
 $smarty->assign('AppJqueryTheme', AppJqueryTheme);
 $smarty->assign('AppThemeCss', AppThemeCss);
 $smarty->assign('AppThemeJs', AppThemeJs);

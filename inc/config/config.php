@@ -34,9 +34,9 @@ $configArray["databaseuser"] = $configArray["databaseuser"] ? $configArray["data
 $configArray["databasepass"] = $configArray["databasepass"] ? $configArray["databasepass"] : "";
 $configArray["applang"] = $configArray["applang"] ? $configArray["applang"] : "en";
 $configArray["apptextdirection"] = $configArray["apptextdirection"] ? $configArray["apptextdirection"] : "LTR";
-$configArray["apptheme"] = "themes/" . $configArray["apptheme"] ? $configArray["apptheme"] : "greenschoolerp" . "/";
+$configArray["apptheme"] = "themes/" . $configArray["apptheme"] ? $configArray["apptheme"] : "default" . "/";
 $configArray["appenvironment"] = $configArray["appenvironment"] ? $configArray["appenvironment"] : "Development";
-$configArray["appurl"] = $configArray["appurl"] ? $configArray["appurl"] : "/framework1/";
+$configArray["appurl"] = $configArray["appurl"] ? $configArray["appurl"] : "/framework/";
 $configArray["smtphost"] = $configArray["smtphost"] ? $configArray["smtphost"] : "smtp.google.com";
 $configArray["smtpuser"] = $configArray["smtpuser"] ? $configArray["smtpuser"] : "meenakshi.sun20@gmail.com";
 $configArray["smtppass"] = $configArray["smtppass"] ? $configArray["smtppass"] : "pass";
@@ -101,7 +101,7 @@ define('AppLocalizationURL', '/' . PublicDir . 'localization/' . AppLang . '/');
 /**
  * Apperance Settings
  */
-define('AppTheme', 'themes/greenschoolerp/');
+define('AppTheme', 'themes/default/');
 define('AppThemeCss', AppURL . PublicDir . SmartyTemplateDir . AppTheme . 'css/');
 define('AppThemeJs', AppURL . PublicDir . SmartyTemplateDir . AppTheme . 'js/');
 define('AppThemeImg', AppURL . PublicDir . SmartyTemplateDir . AppTheme . 'img/');

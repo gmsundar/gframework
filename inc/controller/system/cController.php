@@ -5,11 +5,15 @@ include_once AppRoot . AppCommon . "cUtils.php";
 
 class cController extends cModel {
 
+    public $__cUtils = null;
+
     function __construct() {
         parent::__construct();
+        $this->__cUtils = new cUtils();
     }
 
     public $id = NULL;
+    public $action = 'view';
 
     public function getSelectData($table, $columns = NULL, $condition = NULL, $orderby = NULL, $joincondition = NULL) {
 
@@ -29,20 +33,20 @@ class cController extends cModel {
         return $dataArray;
     }
 
-    public function curd($action = '', $id = "") {
+    public function curd($id) {
 
 
-        if ($action == 'view' || $action == 'editview') {
+        if ($this->action == 'view' || $this->action == 'editview') {
             return $this->addWhereCondition($this->table . '.id=' . $id)->select()->executeRead();
-        } elseif ($action == 'edit') {
+        } elseif ($this->action == 'edit') {
             $this->addWhereCondition('id=' . $id)->update()->executeWrite();
             $this->id = $id;
             return $this->id;
-        } elseif ($action == 'delete') {
+        } elseif ($this->action == 'delete') {
             $this->addWhereCondition('id=' . $id)->delete()->executeWrite();
             $this->id = $id;
             return $this->id;
-        } elseif ($action == 'add') {
+        } elseif ($this->action == 'add') {
             $this->id = $this->create()->executeWrite();
             return $this->id;
         } else {

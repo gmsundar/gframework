@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2013-01-24 03:34:23
+<?php /* Smarty version 2.6.26, created on 2013-01-24 04:20:08
          compiled from layouts/layout1.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'cat', 'layouts/layout1.tpl', 1, false),)), $this); ?>
@@ -11,12 +11,10 @@ unset($_smarty_tpl_vars);
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Comp name</a>
+            <a class="brand" href="<?php echo $this->_tpl_vars['CompanyURL']; ?>
+"><?php echo $this->_tpl_vars['AppName']; ?>
+</a>
             <div class="nav-collapse collapse pull-right">
                 <ul class="nav ">
                     <li><a href="<?php echo '<?php'; ?>

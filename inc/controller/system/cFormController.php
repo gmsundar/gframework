@@ -118,6 +118,12 @@ class cFormController extends cController {
             //creating submit button @ the end of page
             $submit->setAttribute('type', 'submit');
             $submit->setAttribute('class', 'btn');
+            $submit = $dom->createElement('input');
+            //creating submit button @ the end of page
+            $submit->setAttribute('type', 'hidden');
+            $submit->setAttribute('name', '__formaction');
+            $submit->setAttribute('id', '__formaction');
+            $submit->setAttribute('value', '{$content_details_array.page.action}');
             $dom->appendChild($submit);
             $script = $dom->createElement('script');
             // Creating an empty text node forces <script></script>
@@ -141,11 +147,11 @@ class cFormController extends cController {
 
         $this->scriptCode.='if($post){
 
-$' . $this->filename . 'Obj->action = $post["formaction"];
-    $content_details_array["page"] = $' . $this->filename . 'Obj->curd();
+$' . $this->filename . 'Obj->action = $post["__formaction"];
+    $content_details_array["page"] = $' . $this->filename . 'Obj->curd($id);
 
     if ($get["type"] == "") {
-        redirect("base64' . $this->filename . '&id=".$' . $this->filename . 'Obj->id."&action=view");
+        $' . $this->filename . 'Obj->__cUtils->redirect(array("f"=>"' . $this->filename . '","id"=>".$' . $this->filename . 'Obj->id","action"=>"view"));
     }else{
     $data=$' . $this->filename . 'Obj->getSelectData($get["file"], $get["columns"], "id=".$' . $this->filename . 'Obj->id, "");
         echo json_encode($data);
@@ -168,12 +174,14 @@ $' . $this->filename . 'Obj->action = $post["formaction"];
     } elseif ($action == "delete") {
     $' . $this->filename . 'Obj->action=$action;
     $content_details_array["page"] = $' . $this->filename . 'Obj->curd();
-    redirect("' . $this->filename . '&action=viewall");
+    $' . $this->filename . 'Obj->__cUtils->redirect(array("f"=>"' . $this->filename . '","action"=>"viewall"));
     }
 
 }';
 
-
+        $this->scriptCode .='$content_details_array["page"]["title"] = "' . $this->pageProperties['title'] . '";';
+        $this->scriptCode .='$content_details_array["page"]["heading"] = "' . $this->pageProperties['heading'] . '";';
+        $this->scriptCode .='$content_details_array["page"]["action"] = $action;';
         $this->scriptCode .=$scriptCode . "?>";
         file_put_contents($this->scriptsPath . "/" . $this->filename . ".php", $this->scriptCode);
     }

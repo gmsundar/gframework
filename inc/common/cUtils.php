@@ -3,13 +3,12 @@
 class cUtils {
 
     function redirect($uri = array(), $method = 'default', $http_response_code = 302) {
-        $this->createUrl($uri);
+        $uri = $this->createUrl($uri);
 
         switch ($method) {
             case 'refresh' : header("Refresh:0;url=" . $uri);
                 break;
-            case 'default' : header("Location: index.php?file=" . $uri, TRUE, $http_response_code);
-                break;
+
             default : header("Location: " . $uri, TRUE, $http_response_code);
                 break;
         }
@@ -17,15 +16,20 @@ class cUtils {
     }
 
     function encodeURL($url = array()) {
-        foreach ($url as $key => $value) {
-            $url[$key] = base64_encode($value);
+        if (is_array($url)) {
+            foreach ($url as $key => $value) {
+                $url[$key] = base64_encode($value);
+            }
+            $url['e'] = true;
         }
         return $url;
     }
 
     function decodeURL($url = array()) {
-        foreach ($url as $key => $value) {
-            $url[$key] = base64_decode($value);
+        if (is_array($url)) {
+            foreach ($url as $key => $value) {
+                $url[$key] = base64_decode($value);
+            }
         }
         return $url;
     }
@@ -105,8 +109,12 @@ class cUtils {
     }
 
     function createUrl($params) {
-
-        return "index.php?" . http_build_url($this->encodeURL($params));
+        foreach ($this->encodeURL($params) as $key => $value) {
+            $url.="&" . $key . "=" . $value;
+        }
+        //TODO be fixed with the function http_build_url
+        //return "index.php?" . http_build_url($this->encodeURL($params));
+        return "index.php?" . $url;
     }
 
     function objectToArray($data) {
