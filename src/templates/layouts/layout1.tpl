@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="span9">
-        <h2>{$content_details_array.page.title}</h2>
+        <h2>{$content_details_array.page.heading}</h2>
         {include file=$content_details_array.tplFileName}
     </div>
 </div>

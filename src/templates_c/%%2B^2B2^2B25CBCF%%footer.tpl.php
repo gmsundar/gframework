@@ -1,20 +1,12 @@
-<?php /* Smarty version 2.6.26, created on 2013-01-08 15:30:06
+<?php /* Smarty version 2.6.26, created on 2013-01-23 21:11:49
          compiled from themes/greenschoolerp/footer.tpl */ ?>
-<?php echo '
-    <script>
-   
-    </script>
-'; ?>
+<hr>
 
-<!-- start footer -->     
-<div id="footer">
+<footer>
+    <p>&copy; Company 2012</p>
+</footer>
 
-    <p> <a href="<?php echo $this->_tpl_vars['CompanyURL']; ?>
-"><?php echo $this->_tpl_vars['CompanyName']; ?>
- &copy; &nbsp;</a></p>
 </div>
-</div>
-<!-- end footer -->
 
 </body>
 </html>

@@ -35,6 +35,7 @@ Class cDatabase extends PDO {
     }
 
     public function getConnection() {
+
         if ($this->connection === null) {
 
             try {
@@ -80,7 +81,7 @@ Class cDatabase extends PDO {
                         break;
                 }
             } catch (PDOException $e) {
-                $this->error = "Error!: " . $e->getMessage() . "<br/>";
+                echo $this->error = "Error!: " . $e->getMessage() . "<br/>";
                 die();
             }
         }
@@ -89,15 +90,18 @@ Class cDatabase extends PDO {
 
     function executeRead() {
         try {
+
             $this->getConnection();
             $this->beginTransaction();
+
             $dbobj = $this->connection->prepare($this->query);
             $dbobj->execute();
             $res = $dbobj->fetchAll(PDO::FETCH_ASSOC);
             $this->commit();
+
             return $res;
         } catch (PDOException $e) {
-            $this->error = "Error: " . $e->getMessage();
+            echo $this->error = "Error: " . $e->getMessage();
             $this->rollBack();
             return false;
         }

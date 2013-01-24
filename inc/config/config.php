@@ -15,7 +15,7 @@ ini_set('html_errors', On);
 //ini_set('max_execution_time',40);
 ini_set('default_charset', 'utf-8');
 //ini_set('session.save_path','../../tech/sessions');
-
+date_default_timezone_set('America/Los_Angeles');
 
 /**
  * Commercial
@@ -31,7 +31,7 @@ $configArray["databasename"] = $configArray["databasename"] ? $configArray["data
 $configArray["databaseport"] = $configArray["databaseport"] ? $configArray["databaseport"] : "3306";
 $configArray["databasehost"] = $configArray["databasehost"] ? $configArray["databasehost"] : "localhost";
 $configArray["databaseuser"] = $configArray["databaseuser"] ? $configArray["databaseuser"] : "root";
-$configArray["databasepass"] = $configArray["databasepass"] ? $configArray["databasepass"] : "sundar123";
+$configArray["databasepass"] = $configArray["databasepass"] ? $configArray["databasepass"] : "";
 $configArray["applang"] = $configArray["applang"] ? $configArray["applang"] : "en";
 $configArray["apptextdirection"] = $configArray["apptextdirection"] ? $configArray["apptextdirection"] : "LTR";
 $configArray["apptheme"] = "themes/" . $configArray["apptheme"] ? $configArray["apptheme"] : "greenschoolerp" . "/";
@@ -72,13 +72,13 @@ define('EncryptOutput', false);
  */
 define('AppHost', $_SERVER['HTTP_HOST']);
 define('AppProtocol', ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://");
-define('AppURL', AppProtocol . AppHost . '/framework1/');
-define('PublicDir', 'src/');
-define('IncDir', 'inc/');
-define('AppController', '/' . IncDir . 'controller/');
-define('AppCommon', '/' . IncDir . 'common/');
-define('AppLanguage', '/' . IncDir . 'language/');
-define('AppModel', '/' . IncDir . 'modal/');
+define('AppURL', AppProtocol . AppHost . '/framework/');
+define('PublicDir', '/src/');
+define('IncDir', '/inc/');
+define('AppController', IncDir . 'controller/');
+define('AppCommon', IncDir . 'common/');
+define('AppLanguage', IncDir . 'language/');
+define('AppModel', IncDir . 'modal/');
 define('AppJsURL', AppURL . PublicDir . 'js/');
 define('AppCssURL', AppURL . PublicDir . 'css/');
 define('AppImgURL', AppURL . PublicDir . 'img/');
@@ -119,6 +119,7 @@ define('AppLogDateFormat', 'Y-m-d H:i:s');
 /**
  * Environment
  */
+define('AppEnvironment', 'Development');
 define('AppEnvironment', 'Development');
 /**
  * SMTP Settings

@@ -11,26 +11,27 @@
  * @author gt
  */
 include_once('cController.php');
-include_once('../common/utils.php');
+include_once(AppRoot . AppCommon . 'cUtils.php');
 
 class cFormController extends cController {
 
+    private $currentControl;
+    private $scriptCode = "";
+    private $controllerCode = "";
+    private $jsCode = "";
     public $html;
     public $properties;
-    private $currentControl;
     public $tplPath = "";
     public $scriptsPath = "";
     public $controllerPath = "";
     public $langPath = "";
     public $filename = "";
-    private $scriptCode = "";
-    private $controllerCode = "";
-    private $jsCode = "";
     public $projectFile = "gapp.gpr";
     public $projectFilePath = "";
+    public $pageProperties = "";
 
     function __construct() {
-
+        $this->cUtils = new cUtils();
     }
 
     function createModal() {
@@ -90,7 +91,7 @@ class cFormController extends cController {
                     $this->currentControl['name'] = $ctrlname;
                     if ($ctrltype === '_ctrl') {
                         $this->currentControl['type'] = $this->properties->$ctrlname->{'add_as'};
-                        $this->currentControl['properties'] = objectToArray($this->properties->$ctrlname);
+                        $this->currentControl['properties'] = $this->cUtils->objectToArray($this->properties->$ctrlname);
                         $this->createControl();
 
                         $node->nodeValue = $this->viewScript;
@@ -310,6 +311,7 @@ $' . $this->filename . 'Obj->action = $post["formaction"];
             $data = file_get_contents($this->projectFilePath . $this->projectFile);
             $data = json_decode($data);
         }
+        $this->pageProperties = $this->cUtils->objectToArray($data->{$this->filename}->{"pageproperties"});
         $this->properties = $data->{$this->filename}->{"properties"};
         $this->html = $data->{$this->filename}->{"html"};
     }
@@ -319,7 +321,7 @@ $' . $this->filename . 'Obj->action = $post["formaction"];
             $data = file_get_contents($this->projectFilePath . $this->projectFile);
             $data = json_decode($data);
         }
-
+        $data->{$this->filename}->{"pageproperties"} = $this->pageProperties;
         $data->{$this->filename}->{"properties"} = $this->properties;
         $data->{$this->filename}->{"html"} = $this->html;
         file_put_contents($this->projectFilePath . $this->projectFile, json_encode($data));

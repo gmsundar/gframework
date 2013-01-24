@@ -21,7 +21,7 @@ if (is_readable($languageFileName)) {
 
 $content_details_array['__localization']['data'] = $__localization;
 $ScriptFileName = AppRoot . AppScriptURL . $get['f'] . '.php';
-
+print_r($get);
 
 
 if (is_readable($ScriptFileName)) {

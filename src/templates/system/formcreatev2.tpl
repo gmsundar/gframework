@@ -23,30 +23,30 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>
-                                        <input name="page_name" type="text" class="input-medium" id="page_name" placeholder="Future Reference" />
+                                        <input name="page_name" type="text" class="input-medium" id="page_name" placeholder="Future Reference" value="{$content_details_array.formelements.pagesettings.page_name}"/>
                                         <label for="menu_required" class="checkbox inline">
-                                            <input name="menu_required"  id="menu_required" type="checkbox"/>
+                                            <input name="menu_required"  id="menu_required" type="checkbox" {$content_details_array.formelements.pagesettings.menu_required} />
                                             Menu Required
                                         </label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Heading</td>
-                                    <td><input name="heading"  type="text" class="input-medium" id="heading" /></td>
+                                    <td><input name="heading"  type="text" class="input-medium" id="heading" value="{$content_details_array.formelements.pagesettings.heading}" /></td>
                                 </tr>
                                 <tr>
                                     <td>Title</td>
                                     <td>
-                                        <input name="title" type="text" class="input-medium" id="title" />
+                                        <input name="title" type="text" class="input-medium" id="title" value="{$content_details_array.formelements.pagesettings.title}" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>No of columns</td>
-                                    <td><input type=number id="cols" min="1" class="input-mini" max="99" step="1" value="1" required="true"/></td>
+                                    <td><input type=number id="cols" name="cols" min="1" class="input-mini" max="99" step="1" value="{$content_details_array.formelements.pagesettings.cols}" required="true"/></td>
                                 </tr>
                                 <tr>
                                     <td>No of Rows</td>
-                                    <td><input type=number id="rows" min="1" class="input-mini" max="99" step="1" value="1" required="true"/></td>
+                                    <td><input type=number id="rows" name="rows" min="1" class="input-mini" max="99" step="1" value="{$content_details_array.formelements.pagesettings.rows}" required="true"/></td>
                                 </tr>
                                 <tr>
 
@@ -61,9 +61,9 @@
                         <div id="products">
                             <ul id="dbcontrols" class="nav nav-pills nav-stacked">
                                 <li class="nav-header">Form Controls</li>
-                                    {foreach  from=$content_details_array.formelements.dbdata item=currentvalue key=key}
+                                {foreach  from=$content_details_array.formelements.dbdata item=currentvalue key=key}
                                     <li class="formcontrols" id="{$key}">{$key}</li>
-                                    {/foreach}
+                                {/foreach}
                                 <li class="divider"></li>
                                 <li class="nav-header">HTML</li>
                                 <li class="html">Headings</li>
@@ -502,6 +502,12 @@
     <script>
         var sourcedata = '';
         var resultdata = '';
+        var fixHelper = function(e, ui) {
+            ui.children().each(function() {
+                $(this).width($(this).width());
+            });
+            return ui;
+        };
         $(function() {
             sourcedata = JSON.parse($('#source').val());
             resultdata = JSON.parse($('#result').val());
@@ -559,12 +565,7 @@
 
                 }
 
-                var fixHelper = function(e, ui) {
-                    ui.children().each(function() {
-                        $(this).width($(this).width());
-                    });
-                    return ui;
-                };
+
 
                 $(".highlightbuildingblock > table").find('tbody').sortable({
                     helper: fixHelper
@@ -572,6 +573,12 @@
 
                 //                $('.buildingobj').contextmenu();
             });
+
+            $(".buildingblock").find('tbody').sortable({
+                helper: fixHelper
+            }).disableSelection();
+
+
             $.map(resultdata, function(value, key) {
                 $('.calculation_fields').append('<li><a id="' + key + '"  class="calculation_field">' + key + '</a></li>');
             });
@@ -602,13 +609,13 @@
 
             //$('.formcontrols').trigger('click');
             /*$('.hover').mouseover(function(e) {
-             $(this).addClass('hoverhighlight');
+                         $(this).addClass('hoverhighlight');
 
-             }).mouseleave(function(e) {
-             $(this).removeClass('hoverhighlight');
+                         }).mouseleave(function(e) {
+                         $(this).removeClass('hoverhighlight');
 
 
-             });*/
+                         });*/
             $('.ctrllabel,.ctrl').live('click', function(e) {
                 $('.ctrllabel,.ctrl').removeClass('highlightelements');
                 $(this).addClass('highlightelements');
@@ -638,7 +645,7 @@
             $('.close').live('click', function() {
                 $(this).parent().parent().parent().remove();
                 if ($(this).prev().hasClass('html') === false) {
-                    $('#dbcontrols > .nav-header:first').after('<li class="formcontrols">' + $(this).prev().html() + '</li>');
+                    // $('#dbcontrols > .nav-header:first').after('<li class="formcontrols">' + $(this).prev().html() + '</li>');
                 }
             });
 
@@ -786,34 +793,34 @@
 
 
                 /*i = 0;
-                 resultdata[name]['dependent'][i]['cols'] = $('#dependent_column').val();
-                 resultdata[name]['dependent'][i]['from'] = $('#dependent_table').val();
-                 resultdata[name]['dependent'][i]['where'] = $('#dependent_column_condition').val();
-                 resultdata[name]['dependent'][i]['orderby'] = $('#dependent_column_orderby').val();
-                 resultdata[name]['dependent'][i]['applyto'] = $('#dependent').val();
+                                                 resultdata[name]['dependent'][i]['cols'] = $('#dependent_column').val();
+                                                 resultdata[name]['dependent'][i]['from'] = $('#dependent_table').val();
+                                                 resultdata[name]['dependent'][i]['where'] = $('#dependent_column_condition').val();
+                                                 resultdata[name]['dependent'][i]['orderby'] = $('#dependent_column_orderby').val();
+                                                 resultdata[name]['dependent'][i]['applyto'] = $('#dependent').val();
 
-                 resultdata[name]['data']['cols'] = $('#dependent_column').val();
-                 resultdata[name]['data']['from'] = $('#dependent_table').val();
-                 resultdata[name]['data']['join'] = $('#dependent_join').val();
-                 resultdata[name]['data']['where'] = $('#dependent_column_condition').val();
-                 resultdata[name]['data']['orderby'] = $('#dependent_column_orderby').val();
-                 resultdata[name]['data']['static'] = data;
+                                                 resultdata[name]['data']['cols'] = $('#dependent_column').val();
+                                                 resultdata[name]['data']['from'] = $('#dependent_table').val();
+                                                 resultdata[name]['data']['join'] = $('#dependent_join').val();
+                                                 resultdata[name]['data']['where'] = $('#dependent_column_condition').val();
+                                                 resultdata[name]['data']['orderby'] = $('#dependent_column_orderby').val();
+                                                 resultdata[name]['data']['static'] = data;
 
-                 resultdata[name]['event']['type'] = '';
-                 var data = new Array();
-                 $('.static_key_data').each(function(index) {
-                 if ($(this).val() !== '' && $('.static_value_data').val() !== '') {
-                 data[index] = new Array();
-                 data[index]['id'] = $(this).val();
-                 data[index]['value'] = $('.static_value_data').val();
-                 }
+                                                 resultdata[name]['event']['type'] = '';
+                                                 var data = new Array();
+                                                 $('.static_key_data').each(function(index) {
+                                                 if ($(this).val() !== '' && $('.static_value_data').val() !== '') {
+                                                 data[index] = new Array();
+                                                 data[index]['id'] = $(this).val();
+                                                 data[index]['value'] = $('.static_value_data').val();
+                                                 }
 
-                 });
-                 */
+                                                 });
+                                                 */
                 /*var staticdatasize = resultdata[name]['data']['static'].length;
-                 for (i = 0; i < staticdatasize; i++) {
+                                                     for (i = 0; i < staticdatasize; i++) {
 
-                 }*/
+                                                     }*/
                 $('#data_column').val(resultdata[name]['data']['cols']);
                 $('#data_table').val(resultdata[name]['data']['from']);
                 $('#data_table_join').val(resultdata[name]['data']['join']);

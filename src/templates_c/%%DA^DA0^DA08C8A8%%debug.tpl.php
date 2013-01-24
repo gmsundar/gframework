@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2013-01-08 15:30:13
-         compiled from file:/home/sundar/framework1/inc/smarty/debug.tpl */ ?>
+<?php /* Smarty version 2.6.26, created on 2013-01-20 06:23:33
+         compiled from file:/home/sundar/framework/inc/smarty/debug.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'assign_debug_info', 'file:/home/sundar/framework1/inc/smarty/debug.tpl', 3, false),array('function', 'cycle', 'file:/home/sundar/framework1/inc/smarty/debug.tpl', 119, false),array('modifier', 'escape', 'file:/home/sundar/framework1/inc/smarty/debug.tpl', 102, false),array('modifier', 'string_format', 'file:/home/sundar/framework1/inc/smarty/debug.tpl', 105, false),array('modifier', 'debug_print_var', 'file:/home/sundar/framework1/inc/smarty/debug.tpl', 121, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'assign_debug_info', 'file:/home/sundar/framework/inc/smarty/debug.tpl', 3, false),array('function', 'cycle', 'file:/home/sundar/framework/inc/smarty/debug.tpl', 119, false),array('modifier', 'escape', 'file:/home/sundar/framework/inc/smarty/debug.tpl', 102, false),array('modifier', 'string_format', 'file:/home/sundar/framework/inc/smarty/debug.tpl', 105, false),array('modifier', 'debug_print_var', 'file:/home/sundar/framework/inc/smarty/debug.tpl', 121, false),)), $this); ?>
 <?php echo smarty_function_assign_debug_info(array(), $this);?>
 
 <?php ob_start(); ?>

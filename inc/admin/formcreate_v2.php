@@ -33,6 +33,13 @@ if ($_POST) {
     $cFormCreate->properties = json_decode($_POST['result']);
     //print_r($cFormCreate->properties);
     $cFormCreate->html = $_POST['designer_hidden'];
+    $cFormCreate->pageProperties["page_name"] = $_POST["page_name"];
+    $cFormCreate->pageProperties["menu_required"] = $_POST["menu_required"] == 'on' ? 1 : 0;
+    $cFormCreate->pageProperties["heading"] = $_POST["heading"];
+    $cFormCreate->pageProperties["title"] = $_POST["title"];
+    $cFormCreate->pageProperties["cols"] = $_POST["cols"];
+    $cFormCreate->pageProperties["rows"] = $_POST["rows"];
+
     $cFormCreate->createPage();
     //header("Location:formcreate_v2.php");
 //    $cFormCreate->createView();
@@ -143,11 +150,13 @@ if ($_POST) {
         //Static Data
     }
 
-    //print_r($rdata);
 
-
+    $cFormCreate->pageProperties['menu_required'] = $cFormCreate->pageProperties['menu_required'] == 1 ? "checked" : "";
+    $cFormCreate->pageProperties['cols'] = $cFormCreate->pageProperties['cols'] == "" ? 1 : $cFormCreate->pageProperties['cols'];
+    $cFormCreate->pageProperties['rows'] = $cFormCreate->pageProperties['rows'] == "" ? 1 : $cFormCreate->pageProperties['rows'];
 
     $content_details_array['formelements']['dbdata'] = $data;
+    $content_details_array['formelements']['pagesettings'] = $cFormCreate->pageProperties;
     $content_details_array['formelements']['dbdatajson'] = json_encode($data);
     $content_details_array['formelements']['resultdatajson'] = json_encode($rdata);
     $content_details_array['formelements']['html'] = $cFormCreate->html;

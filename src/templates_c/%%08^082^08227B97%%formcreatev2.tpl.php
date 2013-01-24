@@ -1,15 +1,10 @@
-<?php /* Smarty version 2.6.26, created on 2013-01-08 16:28:15
+<?php /* Smarty version 2.6.26, created on 2013-01-24 03:26:10
          compiled from system/formcreatev2.tpl */ ?>
-<link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
-bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
-bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" />
+
 <link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
 bootstrap-editable.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="<?php echo $this->_tpl_vars['AppCssURL']; ?>
 jasny-bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
-bootstrap.min.js"></script>
 <script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
 bootstrap-editable.js"></script>
 <script src="<?php echo $this->_tpl_vars['AppJsURL']; ?>
@@ -35,30 +30,36 @@ bootstrap-contextmenu.js"></script>
                                 <tr>
                                     <td>Name</td>
                                     <td>
-                                        <input name="page_name" type="text" class="input-medium" id="page_name" placeholder="Future Reference" />
+                                        <input name="page_name" type="text" class="input-medium" id="page_name" placeholder="Future Reference" value="<?php echo $this->_tpl_vars['content_details_array']['formelements']['pagesettings']['page_name']; ?>
+"/>
                                         <label for="menu_required" class="checkbox inline">
-                                            <input name="menu_required"  id="menu_required" type="checkbox"/>
+                                            <input name="menu_required"  id="menu_required" type="checkbox" <?php echo $this->_tpl_vars['content_details_array']['formelements']['pagesettings']['menu_required']; ?>
+ />
                                             Menu Required
                                         </label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Heading</td>
-                                    <td><input name="heading"  type="text" class="input-medium" id="heading" /></td>
+                                    <td><input name="heading"  type="text" class="input-medium" id="heading" value="<?php echo $this->_tpl_vars['content_details_array']['formelements']['pagesettings']['heading']; ?>
+" /></td>
                                 </tr>
                                 <tr>
                                     <td>Title</td>
                                     <td>
-                                        <input name="title" type="text" class="input-medium" id="title" />
+                                        <input name="title" type="text" class="input-medium" id="title" value="<?php echo $this->_tpl_vars['content_details_array']['formelements']['pagesettings']['title']; ?>
+" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>No of columns</td>
-                                    <td><input type=number id="cols" min="1" class="input-mini" max="99" step="1" value="1" required="true"/></td>
+                                    <td><input type=number id="cols" name="cols" min="1" class="input-mini" max="99" step="1" value="<?php echo $this->_tpl_vars['content_details_array']['formelements']['pagesettings']['cols']; ?>
+" required="true"/></td>
                                 </tr>
                                 <tr>
                                     <td>No of Rows</td>
-                                    <td><input type=number id="rows" min="1" class="input-mini" max="99" step="1" value="1" required="true"/></td>
+                                    <td><input type=number id="rows" name="rows" min="1" class="input-mini" max="99" step="1" value="<?php echo $this->_tpl_vars['content_details_array']['formelements']['pagesettings']['rows']; ?>
+" required="true"/></td>
                                 </tr>
                                 <tr>
 
@@ -73,13 +74,13 @@ bootstrap-contextmenu.js"></script>
                         <div id="products">
                             <ul id="dbcontrols" class="nav nav-pills nav-stacked">
                                 <li class="nav-header">Form Controls</li>
-                                    <?php $_from = $this->_tpl_vars['content_details_array']['formelements']['dbdata']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+                                <?php $_from = $this->_tpl_vars['content_details_array']['formelements']['dbdata']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['key'] => $this->_tpl_vars['currentvalue']):
 ?>
                                     <li class="formcontrols" id="<?php echo $this->_tpl_vars['key']; ?>
 "><?php echo $this->_tpl_vars['key']; ?>
 </li>
-                                    <?php endforeach; endif; unset($_from); ?>
+                                <?php endforeach; endif; unset($_from); ?>
                                 <li class="divider"></li>
                                 <li class="nav-header">HTML</li>
                                 <li class="html">Headings</li>
@@ -174,10 +175,10 @@ bootstrap-contextmenu.js"></script>
                                                             <tr>
                                                                 <td class="RowNumber">1</td>
                                                                 <td class="span5">
-                                                                    <input type="text" name="static_key_data[]" class="static_key_data input-mini" id="static_key_data" >
+                                                                    <input type="text" name="static_key_data" class="static_key_data input-mini" id="static_key_data" value="" />
                                                                 </td>
                                                                 <td class="span5">
-                                                                    <input type="text" name="static_value_data[]" class="static_value_data input-mini" id="static_value_data" >
+                                                                    <input type="text" name="static_value_data" class="static_value_data input-mini" id="static_value_data" value="" />
                                                                 </td>
                                                                 <td>
                                                                     <i class="icon-trash"></i>
@@ -258,20 +259,18 @@ bootstrap-contextmenu.js"></script>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="data-textbox ctrlproperties" style="display: none">
+                                            <div class="data-text ctrlproperties" style="display: none">
                                                 <table>
                                                     <tr>
                                                         <td>Type</td>
                                                         <td>
-                                                            <select class="" id="data_textbox_type">
-                                                                <option value="alphanumeric" >Normal</option>
+                                                            <select class="" id="data_text_type">
+                                                                <option value="text" >Normal</option>
                                                                 <option value="password" >Password</option>
                                                                 <option value="number" >Number</option>
                                                                 <option value="email" >Email</option>
                                                                 <option value="range" >Range</option>
                                                                 <option value="sequence" >Sequence</option>
-                                                                <option value="readonly">ReadOnly</option>
-                                                                <option value="hidden" >Hidden</option>
                                                                 <option value="percent" >Percent</option>
                                                                 <option value="currency" >Currency</option>
                                                             </select>
@@ -356,7 +355,7 @@ bootstrap-contextmenu.js"></script>
                                             </div>
                                             <div class="control-group">
                                                 <div class="controls">
-                                                    <textarea name="javascript" id="javascript" rows="" cols="" wrap="soft" placeholder="Javascript Code"></textarea>
+                                                    <textarea name="javascript" id="javascript" rows="" cols="" wrap="soft" placeholder="Javascript Code (Use Jquery)"></textarea>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -368,10 +367,51 @@ bootstrap-contextmenu.js"></script>
                                         <fieldset>
                                             <legend>View all <input type="checkbox" name="viewallcolumns" id="viewallcolumns" checked="">
                                             </legend>
+                                            <div class="btn-toolbar calculation" style="margin: 0;">
+                                                <div class="btn-group">
+
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        Fields
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu calculation_fields">
+
+                                                    </ul>
+                                                    <button class="btn backspace">&Longleftarrow;</button>
+                                                    <button class="btn calculation-clear">C</button>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn calculation-operator">+</button>
+                                                    <button class="btn calculation-operator">-</button>
+                                                    <button class="btn calculation-operator">/</button>
+                                                    <button class="btn calculation-operator">*</button>
+                                                    <button class="btn calculation-operator">(</button>
+                                                    <button class="btn calculation-operator">)</button>
+
+
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn calculation-number">1</button>
+                                                    <button class="btn calculation-number">2</button>
+                                                    <button class="btn calculation-number">3</button>
+                                                    <button class="btn calculation-number">4</button>
+                                                    <button class="btn calculation-number">5</button>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button class="btn calculation-number">6</button>
+                                                    <button class="btn calculation-number">7</button>
+                                                    <button class="btn calculation-number">8</button>
+                                                    <button class="btn calculation-number">9</button>
+                                                    <button class="btn calculation-number">0</button>
+                                                    <button class="btn calculation-operator">.</button>
+                                                </div>
+
+
+                                            </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="no_validations">Calculation</label>
                                                 <div class="controls">
-                                                    <input type="text" name="calculation" id="calculation" placeholder="Use data table objects">
+                                                    <input type="text" name="calculation" readonly id="calculation" placeholder="Use data table objects">
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -425,274 +465,7 @@ bootstrap-contextmenu.js"></script>
                         </table>
                     </div>
                     <div id="tabs-4" class="tab-pane">
-                        <div class="accordion" id="accordion2">
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event1">
-                                        List Page : before SQL
-                                    </a>
-                                </div>
-                                <div id="event1" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event2">
-                                        List Page : before process
-                                    </a>
-                                </div>
-                                <div id="event2" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event3">
-                                        List Page : after process
-                                    </a>
-                                </div>
-                                <div id="event3" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event4">
-                                        List Page : before display
-                                    </a>
-                                </div>
-                                <div id="event4" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event5">
-                                        List Page : after display
 
-                                    </a>
-                                </div>
-                                <div id="event5" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event6">
-                                        List Page : Onload (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event6" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event7">
-                                        View Page : before SQL
-
-                                    </a>
-                                </div>
-                                <div id="event7" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event8">
-                                        View Page : before process
-                                    </a>
-                                </div>
-                                <div id="event8" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event9">
-                                        View Page : after process
-                                    </a>
-                                </div>
-                                <div id="event9" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event10">
-                                        View Page : before display
-                                    </a>
-                                </div>
-                                <div id="event10" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event11">
-                                        View Page : Onload (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event11" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event12">
-                                        Delete : before process
-                                    </a>
-                                </div>
-                                <div id="event12" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event13">
-                                        Delete : after process
-                                    </a>
-                                </div>
-                                <div id="event13" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event14">
-                                        Add : Before Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event14" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event15">
-                                        Add : After Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event15" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event16">
-                                        Add : Before Record Added
-                                    </a>
-                                </div>
-                                <div id="event16" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event17">
-                                        Add : After Record Added
-                                    </a>
-                                </div>
-                                <div id="event17" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event18">
-                                        Add : OnLoad (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event18" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event19">
-                                        Edit: Before Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event19" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event20">
-                                        Edit: After Process(Display)
-                                    </a>
-                                </div>
-                                <div id="event20" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event21">
-                                        Edit: After Record Added
-                                    </a>
-                                </div>
-                                <div id="event21" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#event22">
-                                        Edit: OnLoad (Jquery)
-                                    </a>
-                                </div>
-                                <div id="event22" class="accordion-body collapse">
-                                    <div class="accordion-inner">
-                                        <textarea></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -734,7 +507,7 @@ bootstrap-contextmenu.js"></script>
 ' name="result" id="result"/>
         <input type="hidden" value='' name="currentcol" id="currentcol"/>
         <input type="hidden" value='' name="designer_hidden" id="designer_hidden"/>
-        <a href="#" class="btn" id="preview">Preview[New Tab]</a>
+        <button class="btn submit-login" id="preview">Preview[New Tab]</button>
         <a href="#" class="btn" id="save">Save</a>
         <ul id="tabletoolsmenu" class="context-menu dropdown-menu">
             <li><a href="#">Action 1</a></li>
@@ -749,6 +522,12 @@ bootstrap-contextmenu.js"></script>
     <script>
         var sourcedata = \'\';
         var resultdata = \'\';
+        var fixHelper = function(e, ui) {
+            ui.children().each(function() {
+                $(this).width($(this).width());
+            });
+            return ui;
+        };
         $(function() {
             sourcedata = JSON.parse($(\'#source\').val());
             resultdata = JSON.parse($(\'#result\').val());
@@ -768,13 +547,13 @@ bootstrap-contextmenu.js"></script>
                 $(this).tab(\'show\');
             });
 
-            $("#static_data_table").tableAutoAddRow({autoAddRow: true, rowNumColumn: "rowNumber"}, function() {
+            $("#static_data_table").tableAutoAddRow({autoAddRow: true, rowNumColumn: "rowNumber", inputBoxAutoNumber: true}, function() {
                 return false;
             });
             $(".icon-trash").btnDelRow();
 
             $(\'#createlayout\').click(function() {
-                createLayout()
+                createLayout();
             }).trigger(\'click\');
 
             $(\'.buildingblock\').live(\'click\', function() {
@@ -787,12 +566,12 @@ bootstrap-contextmenu.js"></script>
                 } else {
                     var colname = $(this).html();
                     var data = \'<tr id="\' + $(this).attr(\'id\') + \'" class="buildingobj">\\n\';
-                    data += \'<td data-context-menu="#tabletoolsmenu">\'
-                    data += \'<span id="\' + $(this).attr(\'id\') + \'_labl" class="ctrllabel">\' + resultdata[colname][\'display_name\'];
-                    data += \'</span>\'
+                    data += \'<td data-context-menu="#tabletoolsmenu">\';
+                    data += \'<span id="\' + $(this).attr(\'id\') + \'_labl" class="label label-warning ctrllabel">\' + resultdata[colname][\'display_name\'];
+                    data += \'</span>\';
                     data += \'</td>\';
                     data += \'<td>\';
-                    data += \'<span id="\' + $(this).attr(\'id\') + \'_ctrl" class="ctrl">\';
+                    data += \'<span id="\' + $(this).attr(\'id\') + \'_ctrl" class="label label-success ctrl">\';
                     data += \'<span class="">\' + $(this).html() + \'</span>\';
                     data += \'<i class="close pull-right" >&times;</i>\';
                     data += \'</span>\';
@@ -806,39 +585,71 @@ bootstrap-contextmenu.js"></script>
 
                 }
 
-                var fixHelper = function(e, ui) {
-                    ui.children().each(function() {
-                        $(this).width($(this).width());
-                    });
-                    return ui;
-                };
+
 
                 $(".highlightbuildingblock > table").find(\'tbody\').sortable({
                     helper: fixHelper
                 }).disableSelection();
 
-//                $(\'.buildingobj\').contextmenu();
+                //                $(\'.buildingobj\').contextmenu();
+            });
+
+            $(".buildingblock").find(\'tbody\').sortable({
+                helper: fixHelper
+            }).disableSelection();
+
+
+            $.map(resultdata, function(value, key) {
+                $(\'.calculation_fields\').append(\'<li><a id="\' + key + \'"  class="calculation_field">\' + key + \'</a></li>\');
+            });
+            $(\'.calculation-clear\', \'.backspace\').click(function(e) {
+
+                if ($(this).hasClass(\'calculation-clear\')) {
+                    $(\'#calculation\').val(\'\');
+                } else {
+                    //add backspace.
+                }
+            });
+            $(\'.calculation_field\', \'.calculation-operator\', \'.calculation-number\').click(function(e) {
+
+                var currentformula = $(\'#calculation\').val();
+                if ($(this).hasClass(\'calculation_field\')) {
+                    currentformula = currentformula + " [" + $(this).html() + "]";
+
+                } else if ($(this).hasClass(\'calculation-operator\')) {
+                    currentformula = currentformula + " " + $(this).html() + " ";
+                } else {
+                    currentformula = currentformula + " " + $(this).html() + " ";
+                }
+                $(\'#calculation\').val(currentformula);
+
+                e.preventDefault();
+                e.stopPropagation();
             });
 
             //$(\'.formcontrols\').trigger(\'click\');
             /*$(\'.hover\').mouseover(function(e) {
-             $(this).addClass(\'hoverhighlight\');
+                         $(this).addClass(\'hoverhighlight\');
 
-             }).mouseleave(function(e) {
-             $(this).removeClass(\'hoverhighlight\');
+                         }).mouseleave(function(e) {
+                         $(this).removeClass(\'hoverhighlight\');
 
 
-             });*/
+                         });*/
             $(\'.ctrllabel,.ctrl\').live(\'click\', function(e) {
                 $(\'.ctrllabel,.ctrl\').removeClass(\'highlightelements\');
                 $(this).addClass(\'highlightelements\');
 
 
             }).css(\'cursor\', \'pointer\');
+            $(\'.data_save\').click(function() {
+                customizeColumnSave();
+
+            });
             $(\'.buildingobj\').live(\'click\', function(e) {
 
-
-                customizeColumnSave();
+                console.log(\'Building block\');
+                //  customizeColumnSave();
 
 
                 $(\'#currentcol\').val($(this).attr(\'id\'));
@@ -848,11 +659,13 @@ bootstrap-contextmenu.js"></script>
                 $(\'#edit_type\').trigger(\'change\');
                 $(\'#view_type\').trigger(\'change\');
 
+                e.preventDefault();
+
             });
             $(\'.close\').live(\'click\', function() {
                 $(this).parent().parent().parent().remove();
                 if ($(this).prev().hasClass(\'html\') === false) {
-                    $(\'#dbcontrols > .nav-header:first\').after(\'<li class="formcontrols">\' + $(this).prev().html() + \'</li>\');
+                    // $(\'#dbcontrols > .nav-header:first\').after(\'<li class="formcontrols">\' + $(this).prev().html() + \'</li>\');
                 }
             });
 
@@ -878,12 +691,14 @@ bootstrap-contextmenu.js"></script>
                 $(\'.ctrlproperties\').hide();
                 $(\'.data-\' + $(this).val()).show();
                 $(\'.data-\' + $(\'#view_type\').val()).show();
+                console.log(\'edit trigger\');
                 customizeColumnSave();
             });
             $(\'#view_type\').change(function() {
                 $(\'.ctrlproperties\').hide();
                 $(\'.data-\' + $(this).val()).show();
                 $(\'.data-\' + $(\'#edit_type\').val()).show();
+                console.log(\'view trigger\');
                 customizeColumnSave();
             });
 
@@ -892,9 +707,9 @@ bootstrap-contextmenu.js"></script>
 
                 //$(\'.highlightelements\').removeClass(\'icon-bold icon-italic icon-text-width icon-align-left icon-align-center icon-align-right\');
                 if ($(this).hasClass(\'active\')) {
-                    $(\'.highlightelements\').addClass($(this).find(\'i\').attr(\'class\'))
+                    $(\'.highlightelements\').addClass($(this).find(\'i\').attr(\'class\'));
                 } else {
-                    $(\'.highlightelements\').removeClass($(this).find(\'i\').attr(\'class\'))
+                    $(\'.highlightelements\').removeClass($(this).find(\'i\').attr(\'class\'));
                 }
 
             });
@@ -912,7 +727,7 @@ bootstrap-contextmenu.js"></script>
         }
         function customizeColumnLoad() {
             var name = $(\'#currentcol\').val();
-            if (name != \'\') {
+            if (name !== \'\') {
 
 
                 var edit_type_Array = new Array();
@@ -924,7 +739,7 @@ bootstrap-contextmenu.js"></script>
                 edit_type_Array["select"] = "Select";
                 edit_type_Array["checkbox"] = "Checkbox";
                 edit_type_Array["radio"] = "Radio";
-                edit_type_Array["textbox"] = "Textbox";
+                edit_type_Array["text"] = "Textbox";
                 edit_type_Array["date"] = "Date";
                 edit_type_Array["datetime"] = "Date Time";
                 edit_type_Array["time"] = "Time";
@@ -945,11 +760,11 @@ bootstrap-contextmenu.js"></script>
 
                 switch (sourcedata[name][\'type\']) {
                     case \'varchar\':
-                        edit_selected = [\'select\', \'checkbox\', \'radio\', \'textbox\', \'time\', \'color\', \'file\', \'camera\', \'textarea\'];
+                        edit_selected = [\'select\', \'checkbox\', \'radio\', \'text\', \'time\', \'color\', \'file\', \'camera\', \'textarea\'];
                         view_selected = [\'html\', \'image\', \'file\', \'audio\', \'video\', \'url\', \'map\', \'custom\'];
                         break;
                     case \'int\':
-                        edit_selected = [\'select\', \'checkbox\', \'radio\', \'textbox\', \'time\'];
+                        edit_selected = [\'select\', \'checkbox\', \'radio\', \'text\', \'time\'];
 
                         view_selected = [\'html\', \'url\', \'map\', \'custom\'];
                         break;
@@ -979,7 +794,7 @@ bootstrap-contextmenu.js"></script>
 
                 edit_json = edit_json.substring(0, edit_json.length - 1) + "]";
                 view_json = view_json.substring(0, view_json.length - 1) + "]";
-//Loading values
+                //Loading values
 
 
                 $(\'#mandatory\').attr(\'checked\', resultdata[name][\'mandatory\']);
@@ -998,30 +813,57 @@ bootstrap-contextmenu.js"></script>
 
 
                 /*i = 0;
-                 resultdata[name][\'dependent\'][i][\'cols\'] = $(\'#dependent_column\').val();
-                 resultdata[name][\'dependent\'][i][\'from\'] = $(\'#dependent_table\').val();
-                 resultdata[name][\'dependent\'][i][\'where\'] = $(\'#dependent_column_condition\').val();
-                 resultdata[name][\'dependent\'][i][\'orderby\'] = $(\'#dependent_column_orderby\').val();
-                 resultdata[name][\'dependent\'][i][\'applyto\'] = $(\'#dependent\').val();
+                                                 resultdata[name][\'dependent\'][i][\'cols\'] = $(\'#dependent_column\').val();
+                                                 resultdata[name][\'dependent\'][i][\'from\'] = $(\'#dependent_table\').val();
+                                                 resultdata[name][\'dependent\'][i][\'where\'] = $(\'#dependent_column_condition\').val();
+                                                 resultdata[name][\'dependent\'][i][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                                                 resultdata[name][\'dependent\'][i][\'applyto\'] = $(\'#dependent\').val();
 
-                 resultdata[name][\'data\'][\'cols\'] = $(\'#dependent_column\').val();
-                 resultdata[name][\'data\'][\'from\'] = $(\'#dependent_table\').val();
-                 resultdata[name][\'data\'][\'join\'] = $(\'#dependent_join\').val();
-                 resultdata[name][\'data\'][\'where\'] = $(\'#dependent_column_condition\').val();
-                 resultdata[name][\'data\'][\'orderby\'] = $(\'#dependent_column_orderby\').val();
-                 resultdata[name][\'data\'][\'static\'] = data;
+                                                 resultdata[name][\'data\'][\'cols\'] = $(\'#dependent_column\').val();
+                                                 resultdata[name][\'data\'][\'from\'] = $(\'#dependent_table\').val();
+                                                 resultdata[name][\'data\'][\'join\'] = $(\'#dependent_join\').val();
+                                                 resultdata[name][\'data\'][\'where\'] = $(\'#dependent_column_condition\').val();
+                                                 resultdata[name][\'data\'][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                                                 resultdata[name][\'data\'][\'static\'] = data;
 
-                 resultdata[name][\'event\'][\'type\'] = \'\';
-                 var data = new Array();
-                 $(\'.static_key_data\').each(function(index) {
-                 if ($(this).val() !== \'\' && $(\'.static_value_data\').val() !== \'\') {
-                 data[index] = new Array();
-                 data[index][\'id\'] = $(this).val();
-                 data[index][\'value\'] = $(\'.static_value_data\').val();
-                 }
+                                                 resultdata[name][\'event\'][\'type\'] = \'\';
+                                                 var data = new Array();
+                                                 $(\'.static_key_data\').each(function(index) {
+                                                 if ($(this).val() !== \'\' && $(\'.static_value_data\').val() !== \'\') {
+                                                 data[index] = new Array();
+                                                 data[index][\'id\'] = $(this).val();
+                                                 data[index][\'value\'] = $(\'.static_value_data\').val();
+                                                 }
 
-                 });
-                 */
+                                                 });
+                                                 */
+                /*var staticdatasize = resultdata[name][\'data\'][\'static\'].length;
+                                                     for (i = 0; i < staticdatasize; i++) {
+
+                                                     }*/
+                $(\'#data_column\').val(resultdata[name][\'data\'][\'cols\']);
+                $(\'#data_table\').val(resultdata[name][\'data\'][\'from\']);
+                $(\'#data_table_join\').val(resultdata[name][\'data\'][\'join\']);
+                $(\'#data_condition\').val(resultdata[name][\'data\'][\'where\']);
+                $(\'#data_orderby\').val(resultdata[name][\'data\'][\'orderby\']);
+                $(\'#validations\').val(resultdata[name][\'validation\'][\'type\']);
+
+                $(\'#data_text_type\').val(resultdata[name][\'properties\'][\'type\']);
+                $(\'#minvalue\').val(resultdata[name][\'properties\'][\'min\']);
+                $(\'#maxvalue\').val(resultdata[name][\'properties\'][\'max\']);
+                $(\'#stepvalue\').val(resultdata[name][\'properties\'][\'step\']);
+                $(\'#autoseq_pre\').val(resultdata[name][\'properties\'][\'sequence_prepend\']);
+                $(\'#autoseq_app\').val(resultdata[name][\'properties\'][\'sequence_append\']);
+
+
+                var index = 2;
+                var staticdata = resultdata[name][\'data\'][\'static\'];
+                jQuery.map(staticdata, function(value, key) {
+                    console.log(index);
+                    $(\'#static_data_table tr:nth-child(\' + index + \')\').find(\'.static_key_data\').val(value[\'id\']).trigger(\'keyup\');
+                    $(\'#static_data_table tr:nth-child(\' + index + \')\').find(\'.static_value_data\').val(value[\'value\']);
+                    index++;
+                });
 
                 $(\'#column_display_name\').val(resultdata[name][\'display_name\']);
                 geoJs.setSelectOptions(\'#edit_type\', edit_json, true, resultdata[name][\'edit_as\']);
@@ -1035,7 +877,7 @@ bootstrap-contextmenu.js"></script>
         }
         function customizeColumnSave() {
             var name = $(\'#currentcol\').val();
-            if (name != \'\') {
+            if (name !== \'\') {
                 resultdata[name][\'display_name\'] = $(\'#column_display_name\').val();
                 resultdata[name][\'mandatory\'] = $(\'#mandatory\').attr(\'checked\');
                 resultdata[name][\'edit_as\'] = $(\'#edit_type option:selected\').val();
@@ -1053,7 +895,7 @@ bootstrap-contextmenu.js"></script>
                 resultdata[name][\'validation\'][\'custom_pattern\'] = $(\'#validation_pattern_value\').val();
                 resultdata[name][\'validation\'][\'type\'] = $(\'#validations\').val();
 
-                resultdata[name][\'properties\'][\'type\'] = $(\'#data_textbox_type\').val();
+                resultdata[name][\'properties\'][\'type\'] = $(\'#data_text_type\').val();
                 resultdata[name][\'properties\'][\'min\'] = $(\'#minvalue\').val();
                 resultdata[name][\'properties\'][\'max\'] = $(\'#maxvalue\').val();
                 resultdata[name][\'properties\'][\'step\'] = $(\'#stepvalue\').val();
@@ -1067,21 +909,34 @@ bootstrap-contextmenu.js"></script>
                 resultdata[name][\'dependent\'][i][\'orderby\'] = $(\'#dependent_column_orderby\').val();
                 resultdata[name][\'dependent\'][i][\'applyto\'] = $(\'#dependent\').val();
 
-                resultdata[name][\'data\'][\'cols\'] = $(\'#dependent_column\').val();
-                resultdata[name][\'data\'][\'from\'] = $(\'#dependent_table\').val();
-                resultdata[name][\'data\'][\'join\'] = $(\'#dependent_join\').val();
-                resultdata[name][\'data\'][\'where\'] = $(\'#dependent_column_condition\').val();
-                resultdata[name][\'data\'][\'orderby\'] = $(\'#dependent_column_orderby\').val();
+                resultdata[name][\'data\'][\'cols\'] = $(\'#data_column\').val();
+                resultdata[name][\'data\'][\'from\'] = $(\'#data_table\').val();
+                resultdata[name][\'data\'][\'join\'] = $(\'#data_table_join\').val();
+                resultdata[name][\'data\'][\'where\'] = $(\'#data_condition\').val();
+                resultdata[name][\'data\'][\'orderby\'] = $(\'#data_orderby\').val();
 
-                var data = new Array();
-                $(\'.static_key_data\').each(function(index) {
-                    if ($(this).val() !== \'\' && $(\'.static_value_data\').val() !== \'\') {
-                        data[index] = new Array();
-                        data[index][\'id\'] = $(this).val();
-                        data[index][\'value\'] = $(\'.static_value_data\').val();
+                var data = new Object();
+                var len = $(\'#static_data_table tr\').length;
+                $(\'#static_data_table tr\').each(function(index, element) {
+                    if (index > 0) {
+                        var key = $(element).find(\'.static_key_data\').val();
+                        var value = $(element).find(\'.static_value_data\').val();
+
+                        if (key !== \'\' || value !== \'\') {
+
+                            value = value ? value : key;
+                            key = key ? key : value;
+                            data[index] = new Array(key, value);
+
+                        }
+                        if (len > 1) {
+                            // $(element).find(\'.icon-trash\').trigger(\'click\');
+                        }
+                        len--;
                     }
 
                 });
+
 
                 resultdata[name][\'data\'][\'static\'] = data;
                 resultdata[name][\'add_on_fly\'] = $(\'#addonfly\').attr(\'checked\');
@@ -1130,27 +985,28 @@ bootstrap-contextmenu.js"></script>
         .formcontrols,.html{
             cursor: pointer;
         }
-        .highlightbuildingblock{
-            border: #F19615 solid;
-            -moz-border-radius:4px;
-            -webkit-border-bottom-radius:4px;
-            border-radius:4px;
+        .highlightbuildingblock > table{
+            border:2px solid #3A87AD;
         }
         .hoverhighlight{
             border: green solid;
         }
-        .ctrllabel{
-            background-color: #fbf069;
-            border:1px solid black;
 
-        }
-        .ctrl{
-            background-color: #a9dba9;
-            border:1px solid black;
-
-        }
         .highlightelements{
-            background-color: lightblue;
+            background-color: #3A87AD;
+            display: inline-block;
+            padding: 2px 4px;
+            font-size: 11.844px;
+            font-weight: bold;
+            line-height: 14px;
+            color: white;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            white-space: nowrap;
+            vertical-align: baseline;
+
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
         }
     </style>
 '; ?>

@@ -1,10 +1,10 @@
 <?php
 
 define('AppRoot', dirname(dirname(dirname(dirname(__FILE__)))));
-include_once("../../../inc/config/config.php");
-include_once("../../../inc/controller/cFormController.php");
-include_once("../../../inc/controller/cXMLController.php");
-include_once("../../../inc/smarty/Smarty.class.php");
+include_once(AppRoot . "/inc/config/config.php");
+include_once(AppRoot . AppController . "system/cFormController.php");
+include_once(AppRoot . AppController . "system/cXMLController.php");
+include_once(AppRoot . IncDir . "smarty/Smarty.class.php");
 $smarty = new Smarty();
 $cFormCreate = new cFormController();
 $xmlObj = new cXMLController();

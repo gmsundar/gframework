@@ -202,11 +202,11 @@ class cModel extends cDatabase {
         $this->host = $databasehost;
         $this->user = $databaseuser;
         $this->password = $databasepass;
-        $this->database = $databasename ? $databasename : "information_schema";
+
         $this->port = $databaseport;
         switch ($this->dbtype) {
             case 'mysql':
-
+                $this->database = "information_schema";
                 $this->query = "select schema_name from information_schema.schemata order by 1";
                 break;
 
@@ -218,4 +218,5 @@ class cModel extends cDatabase {
     }
 
 }
+
 ?>
