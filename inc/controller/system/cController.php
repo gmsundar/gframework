@@ -1,6 +1,7 @@
 <?php
 
 include_once AppRoot . AppModel . "system/cModel.php";
+include_once AppRoot . AppCommon . "cUtils.php";
 
 class cController extends cModel {
 

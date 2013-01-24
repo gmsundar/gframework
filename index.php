@@ -4,11 +4,11 @@ define('AppRoot', dirname(__FILE__));
 include_once AppRoot . '/inc/config/config.php';
 include_once AppRoot . '/inc/smarty/Smarty.class.php';
 include_once AppRoot . '/inc/smarty/SmartyValidate.class.php';
-include_once AppRoot . '/inc/common/utils.php';
+include_once AppRoot . '/inc/common/cUtils.php';
 session_start();
-
-$post = cleanpost();
-$get = cleanget();
+$cUtils = new cUtils();
+$post = $cUtils->cleanPost();
+$get = $cUtils->cleanGet();
 
 $smarty = new Smarty();
 

@@ -39,28 +39,28 @@ class cFormController extends cController {
 
     function createController() {
         $this->controllerCode = "<?php include_once('system/cController.php');" .
-                'class c' . ucwords($this->filename) . ' extends cController {';
+                'class c' . ucwords($this->filename) . ' extends cController {' . "\n";
 
 
-        $this->controllerCode .='//Events for forms';
+        $this->controllerCode .='//Events for forms' . "\n";
         $this->controllerCode .='public function beforeAdd(){
 
-        }';
+        }' . "\n";
         $this->controllerCode .='public function afterAdd(){
 
-        }';
+        }' . "\n";
         $this->controllerCode .='public function beforeEdit(){
 
-        }';
+        }' . "\n";
         $this->controllerCode .='public function afterEdit(){
 
-        }';
+        }' . "\n";
         $this->controllerCode .='public function beforeView(){
 
-        }';
+        }' . "\n";
         $this->controllerCode .='public function beforeViewAll(){
 
-        }';
+        }' . "\n";
         $this->controllerCode .='} ' . "\n" . ' ?>';
         file_put_contents($this->controllerPath . "/c" . ucwords($this->filename) . ".php", $this->controllerCode);
     }
@@ -133,7 +133,7 @@ class cFormController extends cController {
 
         $this->scriptCode = "<?php " .
                 'include_once AppRoot . AppController . "c' . ucwords($this->filename) . '.php";' .
-                '$' . $this->filename . 'Obj = new c' . $this->filename . '();';
+                '$' . $this->filename . 'Obj = new c' . ucwords($this->filename) . '();';
 
         $this->scriptCode.='$action = $get["action"]?$get["action"]:"viewall";';
         $this->scriptCode.='$' . $this->filename . 'Obj ->id = $id = $get["id"];';
@@ -141,10 +141,10 @@ class cFormController extends cController {
         $this->scriptCode.='if($post){
 
 $' . $this->filename . 'Obj->action = $post["formaction"];
-    $content_details_array["page"] = $' . $this->filename . '>curd();
+    $content_details_array["page"] = $' . $this->filename . 'Obj->curd();
 
     if ($get["type"] == "") {
-        redirect("' . $this->filename . '&id=".$' . $this->filename . 'Obj->id."&action=view");
+        redirect("base64' . $this->filename . '&id=".$' . $this->filename . 'Obj->id."&action=view");
     }else{
     $data=$' . $this->filename . 'Obj->getSelectData($get["file"], $get["columns"], "id=".$' . $this->filename . 'Obj->id, "");
         echo json_encode($data);

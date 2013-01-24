@@ -541,11 +541,11 @@
                     var colname = $(this).html();
                     var data = '<tr id="' + $(this).attr('id') + '" class="buildingobj">\n';
                     data += '<td data-context-menu="#tabletoolsmenu">';
-                    data += '<span id="' + $(this).attr('id') + '_labl" class="ctrllabel">' + resultdata[colname]['display_name'];
+                    data += '<span id="' + $(this).attr('id') + '_labl" class="label label-warning ctrllabel">' + resultdata[colname]['display_name'];
                     data += '</span>';
                     data += '</td>';
                     data += '<td>';
-                    data += '<span id="' + $(this).attr('id') + '_ctrl" class="ctrl">';
+                    data += '<span id="' + $(this).attr('id') + '_ctrl" class="label label-success ctrl">';
                     data += '<span class="">' + $(this).html() + '</span>';
                     data += '<i class="close pull-right" >&times;</i>';
                     data += '</span>';
@@ -958,27 +958,28 @@
         .formcontrols,.html{
             cursor: pointer;
         }
-        .highlightbuildingblock{
-            border: #F19615 solid;
-            -moz-border-radius:4px;
-            -webkit-border-bottom-radius:4px;
-            border-radius:4px;
+        .highlightbuildingblock > table{
+            border:2px solid #3A87AD;
         }
         .hoverhighlight{
             border: green solid;
         }
-        .ctrllabel{
-            background-color: #fbf069;
-            border:1px solid black;
 
-        }
-        .ctrl{
-            background-color: #a9dba9;
-            border:1px solid black;
-
-        }
         .highlightelements{
-            background-color: lightblue;
+            background-color: #3A87AD;
+            display: inline-block;
+            padding: 2px 4px;
+            font-size: 11.844px;
+            font-weight: bold;
+            line-height: 14px;
+            color: white;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            white-space: nowrap;
+            vertical-align: baseline;
+
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
         }
     </style>
 {/literal}
