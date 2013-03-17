@@ -77,6 +77,8 @@ class cFormController extends cController {
         if ($this->html != '') {
             $dom = new DOMDocument();
             @$dom->loadHTML($this->html);
+            $dom->formatOutput = true;
+            $dom->preserveWhiteSpace = FALSE;
             $dom->encoding = 'utf-8';
 # remove <!DOCTYPE
             $dom->removeChild($dom->firstChild);
@@ -130,7 +132,15 @@ class cFormController extends cController {
 
             $script->appendChild($dom->createTextNode('{literal}' . $this->jsCode . '{/literal}'));
             $dom->appendChild($script);
-            file_put_contents($this->tplPath . "/" . $this->filename . ".tpl", "<form method='POST'>" . $dom->saveHTML() . "</form>");
+            $tidy = new tidy;
+            $config = array(
+                'indent' => 1,
+                'wrap' => 200);
+            $tidy->parseString($dom->saveHTML(), $config, 'utf8');
+            //$tidy->cleanRepair();
+            $body = $tidy->Body();
+
+            file_put_contents($this->tplPath . "/" . $this->filename . ".tpl", "" . str_replace(array('<body>', '</body>'), '', $body->value) . "");
         }
     }
 
@@ -332,7 +342,7 @@ $' . $this->filename . 'Obj->action = $post["__formaction"];
         $data->{$this->filename}->{"pageproperties"} = $this->pageProperties;
         $data->{$this->filename}->{"properties"} = $this->properties;
         $data->{$this->filename}->{"html"} = $this->html;
-        file_put_contents($this->projectFilePath . $this->projectFile, json_encode($data));
+        file_put_contents($this->projectFilePath . $this->projectFile, json_encode($data, JSON_PRETTY_PRINT));
     }
 
 }
